@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectBancoItau.Domain.Interfaces.Services
 {
-    public interface IContaService : IServiceBase<Conta>
+    public interface IContaService 
     {
         IEnumerable<Conta> ContasListar();
         IEnumerable<Conta> ContaListaPorAgencia(int? nAgencia);

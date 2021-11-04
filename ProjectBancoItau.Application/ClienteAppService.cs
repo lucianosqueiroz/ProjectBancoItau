@@ -10,12 +10,11 @@ using System.Threading.Tasks;
 
 namespace ProjectBancoItau.Application
 {
-    public class ClienteAppService : AppServiceBase<Cliente>, IClienteAppService
+    public class ClienteAppService : IClienteAppService
     {
         private readonly IClienteService _clienteService;
 
         public ClienteAppService(IClienteService clienteService)
-            :base(clienteService)
         {
             _clienteService = clienteService;
         }

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace ProjectBancoItau.Infra.Data.Repositorios
 {
-    public class ContaRepository : RespositoryBase<Conta>, IContaRepository
+    public class ContaRepository :IContaRepository
     {
         private readonly string CS = ConfigurationManager.ConnectionStrings["ProjectBancoItau"].ConnectionString;
 

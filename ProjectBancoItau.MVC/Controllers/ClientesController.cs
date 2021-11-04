@@ -48,11 +48,11 @@ namespace ProjectBancoItau.MVC.Controllers
             if (ModelState.IsValid)
             {
 
-                var usuairoDomain = Mapper.Map<ClienteViewModel, Cliente>(cliente);
+                var clienteDomain = Mapper.Map<ClienteViewModel, Cliente>(cliente);
 
-                if (usuairoDomain.IsValid()) //verifica se os dados do cliente são válidos (cpf no caso)
+                if (clienteDomain.IsValid()) //verifica se os dados do cliente são válidos (cpf no caso)
                 {
-                    _clienteApp.InserirCliente(usuairoDomain);
+                    _clienteApp.InserirCliente(clienteDomain);
                 }
                 
 
@@ -78,9 +78,12 @@ namespace ProjectBancoItau.MVC.Controllers
             if (ModelState.IsValid)
             {
                 var clienteDomain = Mapper.Map<ClienteViewModel, Cliente>(cliente);
-                _clienteApp.AtualizarCliente(clienteDomain);
 
-                return RedirectToAction("Index");
+                if (clienteDomain.IsValid()) //verifica se os dados do cliente são válidos (cpf no caso)
+                {
+                    _clienteApp.AtualizarCliente(clienteDomain);
+                    return RedirectToAction("Index");
+                }
             }
             return View(cliente);
         }

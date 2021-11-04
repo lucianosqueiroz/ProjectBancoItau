@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectBancoItau.Domain.Interfaces.Services
 {
-    public interface IClienteService : IServiceBase<Cliente>
+    public interface IClienteService
     {
         IEnumerable<Cliente> BuscaTodosClientes();
         Cliente ListaClienteNome(string nomeClienteConta);

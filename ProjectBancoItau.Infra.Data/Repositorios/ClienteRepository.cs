@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace ProjectBancoItau.Infra.Data.Repositorios
 {
-    public class ClienteRepository : RespositoryBase<Cliente>, IClienteRepository
+    public class ClienteRepository : IClienteRepository
     {
         private readonly string CS = ConfigurationManager.ConnectionStrings["ProjectBancoItau"].ConnectionString;
 
@@ -50,7 +50,6 @@ namespace ProjectBancoItau.Infra.Data.Repositorios
                     cliente.Cpf = dr["Cpf"].ToString();
                     cliente.Nome = dr["Nome"].ToString();
                 }
-
                 return cliente;
             }
         }

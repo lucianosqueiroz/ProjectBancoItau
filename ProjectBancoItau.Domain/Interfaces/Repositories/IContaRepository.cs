@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ProjectBancoItau.Domain.Interfaces.Repositories
 { 
 
-    public interface IContaRepository : IRepositoryBase<Conta>
+    public interface IContaRepository 
     {
         IEnumerable<Conta> ContasListar();
         IEnumerable<Conta> ContaListaPorAgencia(int? nAgencia);

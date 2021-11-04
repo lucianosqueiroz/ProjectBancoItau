@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectBancoItau.Domain.Interfaces.Repositories
 {
-    public interface IClienteRepository: IRepositoryBase<Cliente>
+    public interface IClienteRepository
     {
         IEnumerable<Cliente> BuscaTodosClientes();
         Cliente ListaClienteNome(string nomeClienteConta);

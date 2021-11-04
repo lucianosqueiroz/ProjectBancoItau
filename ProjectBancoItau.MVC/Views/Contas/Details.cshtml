@@ -1,0 +1,90 @@
+﻿@model ProjectBancoItau.MVC.ViewModels.ClienteContaViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div >
+    <h4>ClienteContaViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cpf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cpf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdConta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdConta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NConta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NConta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CDigito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CDigito)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NAgencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAgencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ADigito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADigito)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Senha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Senha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Saldo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Saldo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idCliente }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

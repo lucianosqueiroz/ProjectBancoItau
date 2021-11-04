@@ -1,0 +1,81 @@
+﻿@model IEnumerable<ProjectBancoItau.MVC.ViewModels.ClienteContaViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cpf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdConta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NConta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CDigito)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NAgencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ADigito)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Senha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Saldo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cpf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdConta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NConta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CDigito)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NAgencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADigito)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Senha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Saldo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdConta}) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdConta }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdConta })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ProjectBancoItau.MVC.ViewModels.ClienteContaTransLogTransViewModel>
+
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Transacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataTrans)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorTrans)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Transacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataTrans)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorTrans)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+

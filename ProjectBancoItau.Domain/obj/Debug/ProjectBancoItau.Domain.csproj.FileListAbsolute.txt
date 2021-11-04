@@ -1,0 +1,5 @@
+C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.Domain\bin\Debug\ProjectBancoItau.Domain.dll
+C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.Domain\bin\Debug\ProjectBancoItau.Domain.pdb
+C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.Domain\obj\Debug\ProjectBancoItau.Domain.dll
+C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.Domain\obj\Debug\ProjectBancoItau.Domain.pdb
+C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.Domain\obj\Debug\ProjectBancoItau.Domain.csprojResolveAssemblyReference.cache

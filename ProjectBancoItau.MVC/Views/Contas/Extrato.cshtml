@@ -1,0 +1,45 @@
+﻿@model ProjectBancoItau.MVC.ViewModels.ClienteContaTransLogTransViewModel
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    var viewBagVariavel = ViewBag.mensagem;
+    <div class="form-horizontal" style="margin-top:5%; color:blue">
+        <h4 >@Html.ViewBag.nomeCliente</h4>
+        <h5 style="margin-left:5%">@Html.ViewBag.dadosConta</h5>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.IdConta)
+
+        <div class="form-group">
+            @Html.Label("Tipo de Transação", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" >
+                @Html.DropDownList("idTrans", "Todos")
+                @Html.ValidationMessageFor(model => model.IdTrans, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Data Início:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div id="idDataInicial" typeof="number" class="col-md-10">
+                <input type="date" @*step="any"*@ name="dataInicial" /><br />
+                @Html.ValidationMessageFor(model => model.DataTrans, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Data Fim:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div id="idDataFinal" typeof="number" class="col-md-10">
+                <input type="date" @*step="any"*@ name="dataFinal" /><br />
+                @Html.ValidationMessageFor(model => model.DataTrans, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Extrato" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+

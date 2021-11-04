@@ -1,0 +1,48 @@
+﻿@model ProjectBancoItau.MVC.ViewModels.ClienteContaViewModel
+
+@{
+    ViewBag.Title = "ResultBuscaClienteConta";
+}
+
+
+<table class="table" style="margin-top:60px">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NConta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NAgencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Saldo)
+        </th>
+        
+        <th></th>
+    </tr>
+
+
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.NConta)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.NAgencia)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Saldo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.IdConta }) |
+            @Html.ActionLink("Details", "Details", new { id = Model.IdConta }) |
+            @Html.ActionLink("Delete", "Delete", new { id = Model.IdConta })
+        </td>
+    </tr>
+
+</table>

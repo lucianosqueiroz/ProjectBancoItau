@@ -1,0 +1,48 @@
+﻿@model ProjectBancoItau.MVC.ViewModels.ClienteContaViewModel
+
+@{
+    ViewBag.Title = "Transferência";
+}
+
+<h2>Transferência</h2>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <form action="/contas/Transferencia" method="post">
+        <div id="idContaDiv" , style="display:none" class="form-group">
+            @Html.LabelFor(model => model.IdConta, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IdConta, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IdConta, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div>
+                <label><FONT COLOR="#rrggbb">Forma de Depósito: </FONT> </label>
+                <input type="radio" id="doc" name="opcaoSelecionada" value="doc">
+                <label for="doc">Doc</label>
+                <input type="radio" id="ted" name="opcaoSelecionada" value="ted">
+                <label for="ted">Ted</label><br>
+        </div>
+        <div>
+            <label><FONT COLOR="#rrggbb">Valor: </FONT> </label>
+            <input type="number" name="valor" /><br />
+        </div>
+        <div>
+            <label><FONT COLOR="#rrggbb">Agência: </FONT> </label>
+            <input type="number" name="agencia" /><br />
+        </div>
+        <div>
+            <label><FONT COLOR="#rrggbb">Conta: </FONT> </label>
+            <input type="number" name="conta" /><br />
+        </div>
+        <button>Cancelar</button>
+        <button>Finalizar</button>
+    </form>
+</body>
+</html>
+

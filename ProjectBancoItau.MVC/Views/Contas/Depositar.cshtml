@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Depositar";
+}
+
+<h2>Depositar</h2>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <div class="form-group">
+        <form action="/contas/Depositar" method="post">
+            <div>
+                <label><FONT COLOR="#rrggbb">Forma de Depósito: </FONT> </label>
+                <input type="radio" id="dinheiro" name="opcaoSelecionada" value="dinheiro">
+                <label for="dinheiro">Dinheiro</label>
+                <input type="radio" id="cheque" name="opcaoSelecionada" value="cheque">
+                <label for="cheque">Cheque</label><br>
+            </div>
+            <div>
+                <label><FONT COLOR="#rrggbb">Valor: </FONT> </label>
+                <input type="number" name="valor" /><br />
+            </div>
+            <div>
+                <label><FONT COLOR="#rrggbb">Agência: </FONT> </label>
+                <input type="number" name="agencia" /><br />
+            </div>
+            <div>
+                <label><FONT COLOR="#rrggbb">Conta: </FONT> </label>
+                <input type="number" name="conta" /><br />
+            </div>
+            <button class="btn" style="color:blue">Cancelar</button>
+            <button class="btn btn-success" style="background-color:blue;color:white">Finalizar</button>
+        </form>
+    </div>
+   
+</body>
+</html>
+

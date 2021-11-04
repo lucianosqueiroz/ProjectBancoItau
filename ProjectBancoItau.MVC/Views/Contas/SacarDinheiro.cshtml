@@ -1,0 +1,66 @@
+﻿@model ProjectBancoItau.MVC.ViewModels.ClienteContaViewModel
+
+@{
+    ViewBag.Title = "Sacar Dinheiro";
+}
+
+<h2>Sacar Dinheiro</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal" style="color:blue">
+        @*<h4>Dados do saque</h4>*@
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+       
+        <div id="idContaDiv", style="display:none" class="form-group">
+            @Html.LabelFor(model => model.IdConta, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IdConta, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IdConta, "", new { @class = "text-danger" })
+            </div>
+        </div>
+       
+        <div class="form-group">
+            @Html.Label("Valor disponível: ", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.Saldo)
+            
+        </div>
+        <div class="form-group">
+            @Html.Label("Valor que deseja sacar:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div id="valorSaqueDiv"typeof="number" class="col-md-10">
+                <input type="number" @*step="any"*@ name="valorSaque" /><br />
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Senha, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.PasswordFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Senha, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Password(" ", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+       
+
+        <div class="btn">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Cancelar" @*action="/Conta/LogarContaCliente"*@ method="post" class="btn btn-success" style="background-color:#E6E6E6;color:blue" />
+                <input type="submit" value="Finalizar" action="/Conta/SacarDinheiro" style="background-color:blue;color:white" method="post" class="btn btn-success" />
+
+            </div>
+        </div>
+    </div>
+}
+
+
+

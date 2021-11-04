@@ -1,0 +1,60 @@
+﻿@model ProjectBancoItau.MVC.ViewModels.ClienteContaViewModel
+
+@{
+    ViewBag.Title = "Dados da Conta";
+}
+
+
+<div style="width:400px;margin-top:100px; margin-left:auto;margin-right:auto;color:blue">
+    
+    <div>
+        <a><img id="imagemLogo" src="/imagens/logoFraseLateral.png" class="media"></a>
+        <p></p>
+    </div>
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayName("Saldo disponível")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Saldo)
+        </dd>
+        
+        <dt>
+            @Html.DisplayName("Conta")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NConta)
+            @Html.Label(" - ")
+            @Html.DisplayFor(model => model.CDigito)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NAgencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAgencia)
+            @Html.Label(" - ")
+            @Html.DisplayFor(model => model.ADigito)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Saque", "SacarDinheiro", new { id = Model.IdConta}) |
+    @Html.ActionLink("Depósito", "Depositar", new { id = Model.IdConta }) |
+    @Html.ActionLink("Transferência", "Transferencia", new { id = Model.IdConta }) |
+    @Html.ActionLink("Extrato", "Extrato", new { id = Model.IdConta })
+</p>

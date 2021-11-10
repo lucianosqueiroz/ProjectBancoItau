@@ -9,7 +9,7 @@ namespace ProjectBancoItau.Application.Interface
 {
     public interface IClienteAppService
     {
-        IEnumerable<Cliente> BuscaTodosClientes();
+        Task<List<Cliente>> GetBuscaTodosClientes();
         Cliente ListaClienteNome(string nomeClienteConta);
         Cliente BuscaClientePorId(int id);
         Cliente BuscaClientePorCPF(string cpfCliente);

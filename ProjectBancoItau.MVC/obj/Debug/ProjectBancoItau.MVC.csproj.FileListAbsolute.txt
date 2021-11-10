@@ -71,3 +71,4 @@ C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\
 C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.csprojResolveAssemblyReference.cache
 C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.dll
 C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.pdb
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.csprojResolveAssemblyReference.cache

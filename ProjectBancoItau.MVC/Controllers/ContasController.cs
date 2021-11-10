@@ -623,7 +623,7 @@ namespace ProjectBancoItau.MVC.Controllers
         // GET: Conta/Create
         public ActionResult Create()
         {
-            ViewBag.idCliente = new SelectList(_clienteApp.BuscaTodosClientes(), "idCliente", "Nome");
+            //ViewBag.idCliente = new SelectList(_clienteApp.GetBuscaTodosClientes(), "idCliente", "Nome");
             return View();
         }
 
@@ -648,7 +648,7 @@ namespace ProjectBancoItau.MVC.Controllers
             var conta = _contaApp.ContaListaCliente(id);
             var clienteContaViewModel = Mapper.Map<Conta, ClienteContaViewModel>(conta);
 
-            ViewBag.idCliente = new SelectList(_clienteApp.BuscaTodosClientes(), "idCliente", "Nome", clienteContaViewModel.idCliente);
+           // ViewBag.idCliente = new SelectList(_clienteApp.BuscaTodosClientes(), "idCliente", "Nome", clienteContaViewModel.idCliente);
 
             return View(clienteContaViewModel);
         }
@@ -664,7 +664,7 @@ namespace ProjectBancoItau.MVC.Controllers
 
                 return RedirectToAction("Index");
             }
-            ViewBag.idCliente = new SelectList(_clienteApp.BuscaTodosClientes(), "idCliente", "Nome", clienteConta.idCliente);
+          //  ViewBag.idCliente = new SelectList(_clienteApp.BuscaTodosClientes(), "idCliente", "Nome", clienteConta.idCliente);
             return View(clienteConta);
         }
 

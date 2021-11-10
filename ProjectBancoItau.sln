@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectBancoItau.Infra.Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectBancoItau.Application", "ProjectBancoItau.Application\ProjectBancoItau.Application.csproj", "{193B261E-0B70-4A5B-8360-21601B2005AE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "APIs", "APIs", "{C4C03B6F-40AE-4645-AAF0-9D866E47454B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - APIs", "5 - APIs", "{C4C03B6F-40AE-4645-AAF0-9D866E47454B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectBancoItau.API", "ProjectBancoItau.API\ProjectBancoItau.API.csproj", "{493F3EDC-FCE1-47AF-ACD8-06CC8C3DD243}"
 EndProject

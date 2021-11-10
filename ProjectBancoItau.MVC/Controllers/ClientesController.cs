@@ -5,6 +5,7 @@ using ProjectBancoItau.MVC.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -21,10 +22,11 @@ namespace ProjectBancoItau.MVC.Controllers
 
 
         // GET: Cliente
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            var clienteViewModel = Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_clienteApp.BuscaTodosClientes());
-            return View(clienteViewModel);
+            // var clienteViewModel = Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_clienteApp.GetBuscaTodosClientes());
+            List<Cliente> clientes = await _clienteApp.GetBuscaTodosClientes();
+            return View();
         }
 
         // GET: Cliente/Details/5

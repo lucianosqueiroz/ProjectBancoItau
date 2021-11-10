@@ -3,6 +3,10 @@
 
 namespace ProjectBancoItau.MVC.App_Start
 {
+
+
+
+
     using System;
     using System.Web;
 
@@ -51,6 +55,7 @@ namespace ProjectBancoItau.MVC.App_Start
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
+                System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = new Ninject.WebApi.DependencyResolver.NinjectDependencyResolver(kernel);
                 RegisterServices(kernel);
                 return kernel;
             }

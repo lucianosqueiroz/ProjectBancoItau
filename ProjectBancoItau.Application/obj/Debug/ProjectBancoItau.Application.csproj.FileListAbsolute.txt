@@ -5,10 +5,14 @@ C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\
 C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.Application\obj\Debug\ProjectBancoItau.Application.csprojResolveAssemblyReference.cache
 C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.Application\obj\Debug\ProjectBancoItau.Application.dll
 C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.Application\obj\Debug\ProjectBancoItau.Application.pdb
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Application\bin\Debug\ProjectBancoItau.Application.dll
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Application\bin\Debug\ProjectBancoItau.Application.pdb
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Application\bin\Debug\Newtonsoft.Json.dll
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Application\bin\Debug\ProjectBancoItau.Domain.dll
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Application\bin\Debug\System.Net.Http.Formatting.dll
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Application\bin\Debug\ProjectBancoItau.Domain.pdb
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Application\bin\Debug\Newtonsoft.Json.xml
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Application\bin\Debug\System.Net.Http.Formatting.xml
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Application\obj\Debug\ProjectBancoItau.Application.csprojResolveAssemblyReference.cache
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Application\obj\Debug\ProjectBancoItau.Application.dll
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Application\obj\Debug\ProjectBancoItau.Application.pdb
-D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Application\bin\Debug\ProjectBancoItau.Application.dll
-D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Application\bin\Debug\ProjectBancoItau.Application.pdb
-D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Application\bin\Debug\ProjectBancoItau.Domain.dll
-D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Application\bin\Debug\ProjectBancoItau.Domain.pdb

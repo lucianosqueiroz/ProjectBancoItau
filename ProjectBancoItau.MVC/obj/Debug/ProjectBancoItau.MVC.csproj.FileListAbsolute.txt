@@ -1,74 +1,156 @@
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\AutoMapper.Net4.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\ApplicationInsights.config
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\roslyn\csc.exe
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\roslyn\vbc.exe
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\roslyn\VBCSCompiler.exe
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\ProjectBancoItau.MVC.dll.config
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\ProjectBancoItau.MVC.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\ProjectBancoItau.MVC.pdb
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Antlr3.Runtime.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\AutoMapper.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\EntityFramework.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.AI.Agent.Intercept.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.AI.DependencyCollector.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.AI.PerfCounterCollector.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.AI.ServerTelemetryChannel.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.AI.Web.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.AI.WindowsServer.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.ApplicationInsights.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Newtonsoft.Json.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Ninject.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Ninject.Web.Common.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Ninject.Web.Common.WebHost.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Ninject.Web.Mvc.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Application.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Domain.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Infra.Data.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\System.Web.Helpers.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\System.Web.Mvc.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\System.Web.Optimization.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\System.Web.Razor.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\System.Web.WebPages.Deployment.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\System.Web.WebPages.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\System.Web.WebPages.Razor.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\WebActivatorEx.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\WebGrease.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Application.pdb
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Domain.pdb
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Infra.Data.pdb
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\AutoMapper.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\EntityFramework.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.AI.DependencyCollector.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.AI.ServerTelemetryChannel.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.AI.Web.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.AI.WindowsServer.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.ApplicationInsights.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Ninject.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Ninject.Web.Common.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Ninject.Web.Common.WebHost.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Ninject.Web.Mvc.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\System.Web.Helpers.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\System.Web.Mvc.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\System.Web.Optimization.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\System.Web.Razor.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\System.Web.WebPages.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\System.Web.WebPages.Deployment.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\System.Web.WebPages.Razor.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Antlr3.Runtime.pdb
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\bin\Newtonsoft.Json.xml
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.csprojResolveAssemblyReference.cache
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.dll
-C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.pdb
-D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.csprojResolveAssemblyReference.cache
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\AutoMapper.Net4.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\ApplicationInsights.config
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\csc.exe
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\vbc.exe
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\VBCSCompiler.exe
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\ProjectBancoItau.MVC.dll.config
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\ProjectBancoItau.MVC.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\ProjectBancoItau.MVC.pdb
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Antlr3.Runtime.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\AutoMapper.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\EntityFramework.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.Web.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Newtonsoft.Json.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Ninject.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Ninject.Web.Common.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Ninject.Web.Common.WebHost.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Ninject.Web.Mvc.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Ninject.WebApi.DependencyResolver.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Application.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Domain.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Infra.Data.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\System.Net.Http.Formatting.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Helpers.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Mvc.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Optimization.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Razor.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.WebPages.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.WebPages.Razor.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\WebActivatorEx.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\WebGrease.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Http.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Application.pdb
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Domain.pdb
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Infra.Data.pdb
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\AutoMapper.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\EntityFramework.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.Web.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Newtonsoft.Json.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Ninject.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Ninject.Web.Common.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Ninject.Web.Common.WebHost.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Ninject.Web.Mvc.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\System.Net.Http.Formatting.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Optimization.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Helpers.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Mvc.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Razor.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.WebPages.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.WebPages.Razor.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\Antlr3.Runtime.pdb
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Http.xml
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.csprojResolveAssemblyReference.cache
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.dll
+C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.pdb
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\ApplicationInsights.config
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\AutoMapper.Net4.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\csc.exe
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\vbc.exe
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\VBCSCompiler.exe
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\ProjectBancoItau.MVC.dll.config
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\ProjectBancoItau.MVC.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\ProjectBancoItau.MVC.pdb
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Antlr3.Runtime.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\AutoMapper.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\EntityFramework.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.Web.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Newtonsoft.Json.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Ninject.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Ninject.Web.Common.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Ninject.Web.Common.WebHost.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Ninject.Web.Mvc.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Ninject.WebApi.DependencyResolver.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Application.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Domain.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Infra.Data.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\System.Net.Http.Formatting.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Helpers.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Mvc.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Optimization.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Razor.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.WebPages.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.WebPages.Razor.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\WebActivatorEx.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\WebGrease.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Http.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Application.pdb
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Domain.pdb
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Infra.Data.pdb
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\AutoMapper.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\EntityFramework.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.Web.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Newtonsoft.Json.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Ninject.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Ninject.Web.Common.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Ninject.Web.Common.WebHost.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Ninject.Web.Mvc.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\System.Net.Http.Formatting.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Optimization.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Helpers.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Mvc.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Razor.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.WebPages.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.WebPages.Razor.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\Antlr3.Runtime.pdb
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\bin\System.Web.Http.xml
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.csprojResolveAssemblyReference.cache
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.dll
+C:\Users\Luciano Queiroz\Desktop\LucianoPau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.pdb

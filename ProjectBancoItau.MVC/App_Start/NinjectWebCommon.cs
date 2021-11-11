@@ -1,12 +1,10 @@
+using Microsoft.ApplicationInsights.Web;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(ProjectBancoItau.MVC.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(ProjectBancoItau.MVC.App_Start.NinjectWebCommon), "Stop")]
 
 namespace ProjectBancoItau.MVC.App_Start
 {
-
-
-
-
     using System;
     using System.Web;
 
@@ -31,9 +29,16 @@ namespace ProjectBancoItau.MVC.App_Start
         /// </summary>
         public static void Start() 
         {
-            DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
-            DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
-            bootstrapper.Initialize(CreateKernel);
+            try
+            {
+                DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
+                DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
+                bootstrapper.Initialize(CreateKernel);
+            }
+            catch (Exception e)
+            { 
+                
+            }
         }
 
         /// <summary>
@@ -55,7 +60,7 @@ namespace ProjectBancoItau.MVC.App_Start
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
-                System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = new Ninject.WebApi.DependencyResolver.NinjectDependencyResolver(kernel);
+
                 RegisterServices(kernel);
                 return kernel;
             }

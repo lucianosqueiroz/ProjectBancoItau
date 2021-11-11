@@ -52,7 +52,7 @@ namespace ProjectBancoItau.MVC.Controllers
         }
 
 
-        public ActionResult ClienteLogado(int id)
+        public async System.Threading.Tasks.Task<ActionResult> ClienteLogado(int id)
         {
 
             var contaViewModel = Mapper.Map<Conta, ContaViewModel>(_contaApp.ContaListaCliente(id));//lista determinada conta pelo Id da conta
@@ -61,7 +61,7 @@ namespace ProjectBancoItau.MVC.Controllers
             //acrescentando os dados do cliente em uma ClienteViewModel (View model especial com propriedades do Cliente e sua respectiva conta)
             Cliente cliente = new Cliente();
 
-            cliente = _clienteApp.BuscaClientePorId(Convert.ToInt32(contaViewModel.idCliente)); //pega o proprietário de cada conta da Lista contaViewModel
+            cliente = await _clienteApp.BuscaClientePorId(Convert.ToInt32(contaViewModel.idCliente)); //pega o proprietário de cada conta da Lista contaViewModel
 
             ClienteContaViewModel clienteContaViewModel = new ClienteContaViewModel
             {//criação de objeto view model contendo dados das contas com seus respectivos clientes 
@@ -88,17 +88,17 @@ namespace ProjectBancoItau.MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult BuscaClienteConta(ClienteContaViewModel clienteContaViewModel)
+        public async System.Threading.Tasks.Task<ActionResult> BuscaClienteConta(ClienteContaViewModel clienteContaViewModel)
         {
-           //Preenchido somente o nome do cliente na busca.
-            if (!string.IsNullOrEmpty(clienteContaViewModel.Nome) &&  clienteContaViewModel.NConta== 0 && clienteContaViewModel.NAgencia==0) //pesquisa por cliente sem preenchimento dos campos conta e agencia
+            //Preenchido somente o nome do cliente na busca.
+            if (!string.IsNullOrEmpty(clienteContaViewModel.Nome) && clienteContaViewModel.NConta == 0 && clienteContaViewModel.NAgencia == 0) //pesquisa por cliente sem preenchimento dos campos conta e agencia
             {
                 Cliente cliente = new Cliente();
                 cliente.Nome = clienteContaViewModel.Nome;
 
                 cliente = _clienteApp.ListaClienteNome(cliente.Nome);
 
-                if (cliente.idCliente !=0)//se existe cliente cadastrado
+                if (cliente.idCliente != 0)//se existe cliente cadastrado
                 {
                     var clienteContaViewModel2 = new ClienteContaViewModel(); //objeto viewmodel com os dados atualizados do cliente e conta
 
@@ -112,11 +112,11 @@ namespace ProjectBancoItau.MVC.Controllers
                 }
                 else
                 {
-                    this.AddNotification("Não foi encontrado nenhum cliente cadastrado iniciado por "+ clienteContaViewModel.Nome +".", NotificationType.ERROR);
+                    this.AddNotification("Não foi encontrado nenhum cliente cadastrado iniciado por " + clienteContaViewModel.Nome + ".", NotificationType.ERROR);
                     return View();
 
                 }
-                
+
             }
 
 
@@ -127,9 +127,9 @@ namespace ProjectBancoItau.MVC.Controllers
                 Cliente cliente = new Cliente();
 
                 conta = _contaApp.ContaListaClientePorNumConta(clienteContaViewModel.NConta);
-                if (conta.IdConta !=0) //se foi encontrado pelo menos uma conta, prosseguir com a pesquisa
+                if (conta.IdConta != 0) //se foi encontrado pelo menos uma conta, prosseguir com a pesquisa
                 {
-                    cliente = _clienteApp.BuscaClientePorId(conta.idCliente);
+                    cliente = await _clienteApp.BuscaClientePorId(conta.idCliente);
 
                     ClienteContaViewModel clienteContaViewModel2 = new ClienteContaViewModel
                     {//criação de objeto view model2 contendo dados das contas com seus respectivos clientes 
@@ -153,7 +153,7 @@ namespace ProjectBancoItau.MVC.Controllers
                     this.AddNotification("Não foi encontrado nenhuma conta de número " + clienteContaViewModel.NConta + " cadastrado no sistema.", NotificationType.ERROR);
                     return View();
                 }
-                
+
             }
 
 
@@ -161,10 +161,10 @@ namespace ProjectBancoItau.MVC.Controllers
             if (string.IsNullOrEmpty(clienteContaViewModel.Nome) && clienteContaViewModel.NConta == 0 && clienteContaViewModel.NAgencia != 0) //pesquisa por Agencia sem preenchimento dos campos conta e agencia
             {
                 var contaViewModelLista = Mapper.Map<IEnumerable<Conta>, IEnumerable<ContaViewModel>>(_contaApp.ContaListaPorAgencia(clienteContaViewModel.NAgencia));
-                
-                if (contaViewModelLista.Count()==0 )//se não encontrar nenhuma agência cadastrada
+
+                if (contaViewModelLista.Count() == 0)//se não encontrar nenhuma agência cadastrada
                 {
-                    this.AddNotification("Não existe agência de número " + clienteContaViewModel.NAgencia+ " cadastra no sistema.", NotificationType.ERROR);
+                    this.AddNotification("Não existe agência de número " + clienteContaViewModel.NAgencia + " cadastra no sistema.", NotificationType.ERROR);
                     return View();
                 }
                 else // caso encontre agencia cadastrada gerar lista
@@ -176,7 +176,7 @@ namespace ProjectBancoItau.MVC.Controllers
                     {
                         Cliente cliente = new Cliente();
 
-                        cliente = _clienteApp.BuscaClientePorId(Convert.ToInt32(clienteViewModel.idCliente)); //pega o proprietário de cada conta da Lista contaViewModel
+                        cliente = await _clienteApp.BuscaClientePorId(Convert.ToInt32(clienteViewModel.idCliente)); //pega o proprietário de cada conta da Lista contaViewModel
 
                         ClienteContaViewModel clienteContaViewModelNew = new ClienteContaViewModel
                         {//criação de objeto view model contendo dados das contas com seus respectivos clientes 
@@ -198,14 +198,14 @@ namespace ProjectBancoItau.MVC.Controllers
                     return View("ListResultBuscaClienteConta", listaContaClienteViewModel);
                 }
 
-                
+
             }
             else
             {
                 this.AddNotification("Preencha pelo menos um campo", NotificationType.ERROR);
                 return View();
             }
-            
+
         }
 
         public ActionResult SacarDinheiro(int id)
@@ -218,7 +218,7 @@ namespace ProjectBancoItau.MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult SacarDinheiro(ClienteContaViewModel clienteContaViewModel, decimal valorSaque)
+        public async System.Threading.Tasks.Task<ActionResult> SacarDinheiro(ClienteContaViewModel clienteContaViewModel, decimal valorSaque)
         {
             var conta = Mapper.Map<Conta, ContaViewModel>(_contaApp.ContaListaCliente(clienteContaViewModel.IdConta));//lista determinada conta pelo Id da conta
 
@@ -226,7 +226,7 @@ namespace ProjectBancoItau.MVC.Controllers
             //acrescentando os dados do cliente em uma ClienteViewModel (View model especial com propriedades do Cliente e sua respectiva conta)
             Cliente cliente = new Cliente();
 
-            cliente = _clienteApp.BuscaClientePorId(Convert.ToInt32(conta.idCliente)); //pega o proprietário de cada conta da Lista contaViewModel
+            cliente = await _clienteApp.BuscaClientePorId(Convert.ToInt32(conta.idCliente)); //pega o proprietário de cada conta da Lista contaViewModel
 
             if (conta.Senha == clienteContaViewModel.Senha) //se a senha digitada na viewModel for igual a senha cadastrada no banco
             {
@@ -254,7 +254,7 @@ namespace ProjectBancoItau.MVC.Controllers
                     this.AddNotification("Saldo insuficiente.", NotificationType.ERROR);
                     return View();
                 }
-                
+
             }
 
 
@@ -427,7 +427,7 @@ namespace ProjectBancoItau.MVC.Controllers
             return View();
         }
 
-        public ActionResult Extrato(int id)
+        public async System.Threading.Tasks.Task<ActionResult> Extrato(int id)
         {
 
             var clienteContaTransLogTransViewModel = Mapper.Map<LogTransacao, ClienteContaTransLogTransViewModel>(_logTransacaoApp.LogTransacaoListaConta(id));
@@ -437,7 +437,7 @@ namespace ProjectBancoItau.MVC.Controllers
             conta = _contaApp.ContaListaCliente(id);
 
             Cliente cliente = new Cliente();
-            cliente = _clienteApp.BuscaClientePorId(conta.idCliente);
+            cliente = await _clienteApp.BuscaClientePorId(conta.idCliente);
             string dadosConta = "Agência: " + conta.NAgencia + " - " + conta.ADigito + "    Conta: " + conta.NConta + " - " + conta.CDigito; // conta + agencia do cliente
 
             // ViewBag.Nconta = new SelectList(_transacaoApp.BuscaTodosTransacaos(), "idTRansacao", "Nome", clienteContaTransLogTransViewModel.IdTrans);
@@ -448,10 +448,10 @@ namespace ProjectBancoItau.MVC.Controllers
             TempData["contaSelecinada"] = conta;
             TempData["clienteSelecionado"] = cliente;
 
-           
 
 
-            return View(clienteContaTransLogTransViewModel );
+
+            return View(clienteContaTransLogTransViewModel);
 
 
         }
@@ -509,7 +509,7 @@ namespace ProjectBancoItau.MVC.Controllers
         }
 
         // GET: Conta
-        public ActionResult Index()
+        public async System.Threading.Tasks.Task<ActionResult> Index()
         //List<Conta> Contas = new List<Conta>();
         {
             var contaViewModel = Mapper.Map<IEnumerable<Conta>, IEnumerable<ContaViewModel>>(_contaApp.ContasListar());
@@ -520,12 +520,13 @@ namespace ProjectBancoItau.MVC.Controllers
             {
                 Cliente cliente = new Cliente();
 
-                cliente = _clienteApp.BuscaClientePorId(Convert.ToInt32(clienteViewModel.idCliente)); //pega o proprietário de cada conta da Lista contaViewModel
+                cliente = await _clienteApp.BuscaClientePorId(Convert.ToInt32(clienteViewModel.idCliente)); //pega o proprietário de cada conta da Lista contaViewModel
 
-                ClienteContaViewModel clienteContaViewModel = new ClienteContaViewModel {//criação de objeto view model contendo dados das contas com seus respectivos clientes 
+                ClienteContaViewModel clienteContaViewModel = new ClienteContaViewModel
+                {//criação de objeto view model contendo dados das contas com seus respectivos clientes 
                     idCliente = cliente.idCliente,
                     Cpf = cliente.Cpf,
-                    Nome  = cliente.Nome,
+                    Nome = cliente.Nome,
                     IdConta = clienteViewModel.IdConta,
                     NConta = clienteViewModel.NConta,
                     CDigito = clienteViewModel.CDigito,
@@ -543,33 +544,33 @@ namespace ProjectBancoItau.MVC.Controllers
         }
 
         // GET: Conta/Details/5
-        public ActionResult Details(int id)
+        public async System.Threading.Tasks.Task<ActionResult> Details(int id)
         {
             var contaViewModel = Mapper.Map<Conta, ContaViewModel>(_contaApp.ContaListaCliente(id));//lista determinada conta pelo Id da conta
 
 
             //acrescentando os dados do cliente em uma ClienteViewModel (View model especial com propriedades do Cliente e sua respectiva conta)
-                Cliente cliente = new Cliente();
+            Cliente cliente = new Cliente();
 
-                cliente = _clienteApp.BuscaClientePorId(Convert.ToInt32(contaViewModel.idCliente)); //pega o proprietário de cada conta da Lista contaViewModel
+            cliente = await _clienteApp.BuscaClientePorId(Convert.ToInt32(contaViewModel.idCliente)); //pega o proprietário de cada conta da Lista contaViewModel
 
-                ClienteContaViewModel clienteContaViewModel = new ClienteContaViewModel
-                {//criação de objeto view model contendo dados das contas com seus respectivos clientes 
-                    idCliente = cliente.idCliente,
-                    Cpf = cliente.Cpf,
-                    Nome = cliente.Nome,
-                    IdConta = contaViewModel.IdConta,
-                    NConta = contaViewModel.NConta,
-                    CDigito = contaViewModel.CDigito,
-                    NAgencia = contaViewModel.NAgencia,
-                    ADigito = contaViewModel.ADigito,
-                    Senha = contaViewModel.Senha,
-                    Saldo = contaViewModel.Saldo
+            ClienteContaViewModel clienteContaViewModel = new ClienteContaViewModel
+            {//criação de objeto view model contendo dados das contas com seus respectivos clientes 
+                idCliente = cliente.idCliente,
+                Cpf = cliente.Cpf,
+                Nome = cliente.Nome,
+                IdConta = contaViewModel.IdConta,
+                NConta = contaViewModel.NConta,
+                CDigito = contaViewModel.CDigito,
+                NAgencia = contaViewModel.NAgencia,
+                ADigito = contaViewModel.ADigito,
+                Senha = contaViewModel.Senha,
+                Saldo = contaViewModel.Saldo
 
-                };
+            };
 
 
-                return View(clienteContaViewModel);
+            return View(clienteContaViewModel);
         }
 
 
@@ -580,7 +581,7 @@ namespace ProjectBancoItau.MVC.Controllers
         }
         // Post: Conta/CreateClienteConta
         [HttpPost]
-        public ActionResult CreateClienteConta(ClienteContaViewModel clienteContaViewModel)
+        public async System.Threading.Tasks.Task<ActionResult> CreateClienteConta(ClienteContaViewModel clienteContaViewModel)
         {
             var conta = Mapper.Map<ClienteContaViewModel, Conta>(clienteContaViewModel);
             Cliente cliente = new Cliente()
@@ -593,9 +594,11 @@ namespace ProjectBancoItau.MVC.Controllers
             if (cliente.IsValid())
             {
                 _clienteApp.InserirCliente(cliente); //salva o cliente em banco
-                cliente.idCliente = _clienteApp.BuscaClientePorCPF(cliente.Cpf).idCliente; //atualiz o objeto cliente com o id salvo no banco                
+                var clienteTemp = new Cliente();
+                clienteTemp = await _clienteApp.BuscaClientePorCPF(cliente.Cpf);
+                cliente.idCliente = clienteTemp.idCliente; //atualiz o objeto cliente com o id salvo no banco                
 
-                if (cliente.idCliente!=0)// se o cliente foi salvo no banco, salve a conta referente a ele
+                if (cliente.idCliente != 0)// se o cliente foi salvo no banco, salve a conta referente a ele
                 {
                     conta.idCliente = cliente.idCliente;
                     conta.Saldo = 0;
@@ -610,7 +613,7 @@ namespace ProjectBancoItau.MVC.Controllers
                     return View();
                 }
 
-                
+
             }
             else
             {
@@ -623,7 +626,7 @@ namespace ProjectBancoItau.MVC.Controllers
         // GET: Conta/Create
         public ActionResult Create()
         {
-            //ViewBag.idCliente = new SelectList(_clienteApp.GetBuscaTodosClientes(), "idCliente", "Nome");
+            //ViewBag.idCliente = new SelectList(_clienteApp.BuscaTodosClientes(), "idCliente", "Nome");
             return View();
         }
 
@@ -648,7 +651,7 @@ namespace ProjectBancoItau.MVC.Controllers
             var conta = _contaApp.ContaListaCliente(id);
             var clienteContaViewModel = Mapper.Map<Conta, ClienteContaViewModel>(conta);
 
-           // ViewBag.idCliente = new SelectList(_clienteApp.BuscaTodosClientes(), "idCliente", "Nome", clienteContaViewModel.idCliente);
+            //ViewBag.idCliente = new SelectList(_clienteApp.BuscaTodosClientes(), "idCliente", "Nome", clienteContaViewModel.idCliente);
 
             return View(clienteContaViewModel);
         }
@@ -664,7 +667,7 @@ namespace ProjectBancoItau.MVC.Controllers
 
                 return RedirectToAction("Index");
             }
-          //  ViewBag.idCliente = new SelectList(_clienteApp.BuscaTodosClientes(), "idCliente", "Nome", clienteConta.idCliente);
+           // ViewBag.idCliente = new SelectList(_clienteApp.BuscaTodosClientes(), "idCliente", "Nome", clienteConta.idCliente);
             return View(clienteConta);
         }
 

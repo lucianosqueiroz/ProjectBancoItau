@@ -7,11 +7,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Mvc;
 
 namespace ProjectBancoItau.API.Controllers
 {
-    public class ClienteController : IController
+    public class ClienteController : ApiController
     {
         private readonly IClienteRepository _clienteRepository;
         private readonly IContaRepository _contaRepository;
@@ -23,13 +22,31 @@ namespace ProjectBancoItau.API.Controllers
         // GET: api/Cliente
         public IHttpActionResult Get()
         {
-            return Ok(_clienteRepository.BuscaTodosClientes());
+            var clientes =_clienteRepository.BuscaTodosClientes();
+
+            if (clientes.Count()>0)
+            {
+                return Ok(_clienteRepository.BuscaTodosClientes());
+            }
+            else
+            {
+                return Content(HttpStatusCode.NotFound, "Cliente não encontrado.");
+            }
         }
 
         // GET: api/Cliente/5
         public IHttpActionResult Get(int id)
         {
-            return Ok(_clienteRepository.BuscaClientePorId(id));
+            var cliente = _clienteRepository.BuscaClientePorId(id);
+            if (!string.IsNullOrEmpty(cliente.Cpf))
+            {
+                return Ok(_clienteRepository.BuscaClientePorId(id));
+            }
+            else
+            {
+                return Content(HttpStatusCode.NotFound, "Cliente não encontrado.");
+            }
+            
         }
 
         // POST: api/Cliente
@@ -56,7 +73,7 @@ namespace ProjectBancoItau.API.Controllers
         }
 
         // DELETE: api/Cliente/5
-        public IHttpActionResult Delete(Cliente cliente)
+        public IHttpActionResult Delete([FromBody]Cliente cliente)
         {
             cliente = _clienteRepository.BuscaClientePorCPF(cliente.Cpf);
             if (!string.IsNullOrEmpty(cliente.Cpf)) //se o cliente for cadastrado

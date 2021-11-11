@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using ProjectBancoItau.Application.Interface;
+﻿using ProjectBancoItau.Application.Interface;
 using ProjectBancoItau.Domain.Entities;
 using ProjectBancoItau.Domain.Interfaces.Services;
 using ProjectBancoItau.Domain.Services;
@@ -10,13 +9,13 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace ProjectBancoItau.Application
 {
     public class ClienteAppService : IClienteAppService
     {
         private readonly HttpClient _clienteHttpCliente;
-
         public ClienteAppService(HttpClient clienteHttpCliente)
         {
             _clienteHttpCliente = clienteHttpCliente;
@@ -24,55 +23,83 @@ namespace ProjectBancoItau.Application
             _clienteHttpCliente.BaseAddress = new Uri("http://localhost:63454/");
             _clienteHttpCliente.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
-
         }
 
-       
-
-        public void AtualizarCliente(Cliente cliente)
+        public  void AtualizarCliente(Cliente cliente)
         {
-          //  _clienteService.AtualizarCliente(cliente);
+                var request = new HttpRequestMessage
+                {
+                    Method = HttpMethod.Put,
+                    RequestUri = new Uri("http://localhost:63454/api/cliente/"),
+                    Content = new StringContent(JsonConvert.SerializeObject(cliente), Encoding.UTF8, "application/json")
+                };
+            var response =  _clienteHttpCliente.SendAsync(request);
         }
 
         public async Task<List<Cliente>> GetBuscaTodosClientes()
         {
             HttpResponseMessage response = await _clienteHttpCliente.GetAsync("api/cliente");
-            if(response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
                 var dados = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<List<Cliente>>(dados);
             }
 
+
             return new List<Cliente>();
         }
 
 
-        public Cliente BuscaClientePorCPF(string cpfCliente)
+        public async Task<Cliente> BuscaClientePorCPF(string cpfCliente)
         {
-            return null;
-           // return _clienteService.BuscaClientePorCPF(cpfCliente);
+            HttpResponseMessage response = await _clienteHttpCliente.GetAsync("api/cliente/" + cpfCliente);
+            var dados = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<Cliente>(dados);
+            }
+            return new Cliente();
         }
 
         public void DeletarCliente(Cliente cliente)
         {
-           
-            // _clienteService.DeletarCliente(cliente);
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Delete,
+                RequestUri = new Uri("http://localhost:63454/api/cliente/"),
+                Content = new StringContent(JsonConvert.SerializeObject(cliente), Encoding.UTF8, "application/json")
+            };
+            var response =  _clienteHttpCliente.SendAsync(request);
+            
+
+            
         }
 
-        public void InserirCliente(Cliente cliente)
+        public  void InserirCliente(Cliente cliente)
         {
-
-           // _clienteService.InserirCliente(cliente);
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new Uri("http://localhost:63454/api/cliente/"),
+                Content = new StringContent(JsonConvert.SerializeObject(cliente), Encoding.UTF8, "application/json")
+            };
+            var response =  _clienteHttpCliente.SendAsync(request);
         }
 
-        public Cliente BuscaClientePorId(int id)
+        public async Task<Cliente> BuscaClientePorId(int id)
         {
-            return null;
+            HttpResponseMessage response = await _clienteHttpCliente.GetAsync("api/cliente/"+id);
+            var dados = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<Cliente>(dados);
+            }
+            return new Cliente();
         }
 
         public Cliente ListaClienteNome(string nomeClienteConta)
         {
-            return null;
+           return null;
         }
     }
 

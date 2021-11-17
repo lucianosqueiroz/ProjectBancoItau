@@ -5,101 +5,54 @@ using ProjectBancoItau.Domain.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
 namespace ProjectBancoItau.Application
 {
     public class ClienteAppService : IClienteAppService
     {
-        private readonly HttpClient _clienteHttpCliente;
-        public ClienteAppService(HttpClient clienteHttpCliente)
-        {
-            _clienteHttpCliente = clienteHttpCliente;
+        private readonly IClienteService _clienteService;
 
-            _clienteHttpCliente.BaseAddress = new Uri("http://localhost:63454/");
-            _clienteHttpCliente.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
+        public ClienteAppService(IClienteService clienteService)
+        {
+            _clienteService = clienteService;
         }
 
-        public  void AtualizarCliente(Cliente cliente)
+        public void AtualizarCliente(Cliente cliente)
         {
-                var request = new HttpRequestMessage
-                {
-                    Method = HttpMethod.Put,
-                    RequestUri = new Uri("http://localhost:63454/api/cliente/"),
-                    Content = new StringContent(JsonConvert.SerializeObject(cliente), Encoding.UTF8, "application/json")
-                };
-            var response =  _clienteHttpCliente.SendAsync(request);
+            _clienteService.AtualizarCliente(cliente);
         }
 
-        public async Task<List<Cliente>> GetBuscaTodosClientes()
+        public IEnumerable<Cliente> BuscaTodosClientes()
         {
-            HttpResponseMessage response = await _clienteHttpCliente.GetAsync("api/cliente");
-            if (response.IsSuccessStatusCode)
-            {
-                var dados = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<List<Cliente>>(dados);
-            }
-
-
-            return new List<Cliente>();
+            return _clienteService.BuscaTodosClientes();
         }
 
 
-        public async Task<Cliente> BuscaClientePorCPF(string cpfCliente)
+        public Cliente BuscaClientePorCPF(string cpfCliente)
         {
-            HttpResponseMessage response = await _clienteHttpCliente.GetAsync("api/cliente/" + cpfCliente);
-            var dados = await response.Content.ReadAsStringAsync();
-            if (response.IsSuccessStatusCode)
-            {
-                return JsonConvert.DeserializeObject<Cliente>(dados);
-            }
-            return new Cliente();
+            return _clienteService.BuscaClientePorCPF(cpfCliente);
         }
 
         public void DeletarCliente(Cliente cliente)
         {
-            var request = new HttpRequestMessage
-            {
-                Method = HttpMethod.Delete,
-                RequestUri = new Uri("http://localhost:63454/api/cliente/"),
-                Content = new StringContent(JsonConvert.SerializeObject(cliente), Encoding.UTF8, "application/json")
-            };
-            var response =  _clienteHttpCliente.SendAsync(request);
-            
-
-            
+            _clienteService.DeletarCliente(cliente);
         }
 
-        public  void InserirCliente(Cliente cliente)
+        public void InserirCliente(Cliente cliente)
         {
-            var request = new HttpRequestMessage
-            {
-                Method = HttpMethod.Post,
-                RequestUri = new Uri("http://localhost:63454/api/cliente/"),
-                Content = new StringContent(JsonConvert.SerializeObject(cliente), Encoding.UTF8, "application/json")
-            };
-            var response =  _clienteHttpCliente.SendAsync(request);
+            _clienteService.InserirCliente(cliente);
         }
 
-        public async Task<Cliente> BuscaClientePorId(int id)
+        public Cliente BuscaClientePorId(int id)
         {
-            HttpResponseMessage response = await _clienteHttpCliente.GetAsync("api/cliente/"+id);
-            var dados = await response.Content.ReadAsStringAsync();
-            if (response.IsSuccessStatusCode)
-            {
-                return JsonConvert.DeserializeObject<Cliente>(dados);
-            }
-            return new Cliente();
+            return _clienteService.BuscaClientePorId(id);
         }
 
         public Cliente ListaClienteNome(string nomeClienteConta)
         {
-           return null;
+           return _clienteService.ListaClienteNome(nomeClienteConta);
         }
     }
 

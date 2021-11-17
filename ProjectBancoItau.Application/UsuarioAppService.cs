@@ -4,59 +4,109 @@ using ProjectBancoItau.Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace ProjectBancoItau.Application
 {
-    public class UsuarioAppService : AppServiceBase<Usuario>, IUsuarioAppService
+    public class UsuarioAppService : IUsuarioAppService
     {
-        private readonly IUsuarioService _usuarioService;
-
-        public UsuarioAppService(IUsuarioService usuarioService)
-            :base(usuarioService)
+        HttpClient _usuarioHttpClient = new HttpClient();
+        //private readonly HttpClient _usuarioHttpClient;
+        public UsuarioAppService()
         {
-            _usuarioService = usuarioService;
+            //_usuarioHttpClient = usuarioHttpClient;
+            _usuarioHttpClient.BaseAddress = new Uri("http://localhost:63454/");
+            _usuarioHttpClient.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         public void AtualizarUsuario(Usuario usuario)
         {
-             _usuarioService.AtualizarUsuario(usuario);
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Put,
+                RequestUri = new Uri("http://localhost:63454/api/usuario/"),
+                Content = new StringContent(JsonConvert.SerializeObject(usuario), Encoding.UTF8, "application/json")
+            };
+            var response = _usuarioHttpClient.SendAsync(request);
         }
 
-        public IEnumerable<Usuario> BuscaTodosUsuarios()
+        public async Task<List<Usuario>> BuscaTodosUsuarios()
         {
-            return  _usuarioService.BuscaTodosUsuarios();
+            HttpResponseMessage response = await _usuarioHttpClient.GetAsync("api/usuario");
+            if (response.IsSuccessStatusCode)
+            {
+                var dados = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<List<Usuario>>(dados);
+            }
+
+
+            return new List<Usuario>();
         }
 
-        public IEnumerable<Usuario> BuscaTodosUsuariosGerentes()
+        public async Task<List<Usuario>> BuscaTodosUsuariosGerentes()
         {
-            throw new NotImplementedException();
+            HttpResponseMessage response = await _usuarioHttpClient.GetAsync("api/usuario");
+            if (response.IsSuccessStatusCode)
+            {
+                var dados = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<List<Usuario>>(dados);
+            }
+            return new List<Usuario>();
         }
 
-        public IEnumerable<Usuario> BuscaTodosUsuariosGerentes(IEnumerable<Usuario> usuarios)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Usuario BuscaUsuarioPorID(int? idUsuario )
+
+        public async Task<Usuario> BuscaUsuarioPorID(int? idUsuario)
         {
-            return _usuarioService.BuscaUsuarioPorID(idUsuario);
+            HttpResponseMessage response = await _usuarioHttpClient.GetAsync("api/usuario/" + idUsuario);
+            var dados = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<Usuario>(dados);
+            }
+            return new Usuario();
         }
 
         public void DeletarUsuario(Usuario usuario)
         {
-            _usuarioService.DeletarUsuario(usuario);
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Delete,
+                RequestUri = new Uri("http://localhost:63454/api/usuario/"),
+                Content = new StringContent(JsonConvert.SerializeObject(usuario), Encoding.UTF8, "application/json")
+            };
+            var response = _usuarioHttpClient.SendAsync(request);
         }
 
         public void InserirUsuario(Usuario usuario)
         {
-            _usuarioService.InserirUsuario(usuario);
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new Uri("http://localhost:63454/api/usuario/"),
+                Content = new StringContent(JsonConvert.SerializeObject(usuario), Encoding.UTF8, "application/json")
+            };
+            var response = _usuarioHttpClient.SendAsync(request);
         }
 
-        public Usuario ListaUsuarioPorLogin(string login)
+        public async Task<Usuario> ListaUsuarioPorLogin(string login)
         {
-            return _usuarioService.ListaUsuarioPorLogin(login);
+
+
+            HttpResponseMessage response = await _usuarioHttpClient.GetAsync("api/usuario/getlogin?login=" + login);
+            var dados = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<Usuario>(dados);
+            }
+            return new Usuario();
+
+
         }
 
     }

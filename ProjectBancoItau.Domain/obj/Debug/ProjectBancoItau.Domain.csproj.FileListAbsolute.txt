@@ -1,4 +1,14 @@
-C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.Domain\bin\Debug\ProjectBancoItau.Domain.dll
-C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.Domain\bin\Debug\ProjectBancoItau.Domain.pdb
-C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.Domain\obj\Debug\ProjectBancoItau.Domain.dll
-C:\Users\Douglas da Mata\Desktop\Luciano\LucianoPau\ProjectBancoItau.Domain\obj\Debug\ProjectBancoItau.Domain.pdb
+C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.Domain\bin\Debug\ProjectBancoItau.Domain.dll
+C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.Domain\bin\Debug\ProjectBancoItau.Domain.pdb
+C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.Domain\obj\Debug\ProjectBancoItau.Domain.dll
+C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.Domain\obj\Debug\ProjectBancoItau.Domain.pdb
+C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.Domain\obj\Debug\ProjectBancoItau.Domain.csprojResolveAssemblyReference.cache
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Domain\obj\Debug\ProjectBancoItau.Domain.csprojResolveAssemblyReference.cache
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Domain\obj\Debug\ProjectBancoItau.Domain.dll
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Domain\obj\Debug\ProjectBancoItau.Domain.pdb
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Domain\bin\Debug\ProjectBancoItau.Domain.dll
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Domain\bin\Debug\ProjectBancoItau.Domain.pdb
+C:\Users\Luciano Queiroz\Desktop\VS2\ProjectBancoItau-main\ProjectBancoItau.Domain\bin\Debug\ProjectBancoItau.Domain.dll
+C:\Users\Luciano Queiroz\Desktop\VS2\ProjectBancoItau-main\ProjectBancoItau.Domain\bin\Debug\ProjectBancoItau.Domain.pdb
+C:\Users\Luciano Queiroz\Desktop\VS2\ProjectBancoItau-main\ProjectBancoItau.Domain\obj\Debug\ProjectBancoItau.Domain.dll
+C:\Users\Luciano Queiroz\Desktop\VS2\ProjectBancoItau-main\ProjectBancoItau.Domain\obj\Debug\ProjectBancoItau.Domain.pdb

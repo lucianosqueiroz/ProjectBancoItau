@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectBancoItau.Domain.Interfaces.Repositories
 {
-    public interface ITransacaoRepository : IRepositoryBase<Transacao>
+    public interface ITransacaoRepository
     {
         IEnumerable<Transacao> BuscaTodosTransacaos();
         Transacao BuscaTransacaoPorId(int id);

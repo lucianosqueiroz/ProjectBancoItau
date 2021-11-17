@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectBancoItau.Application.Interface
 {
-    public interface ILogTransacaoAppService: IAppServiceBase<LogTransacao>
+    public interface ILogTransacaoAppService
     {
         IEnumerable<LogTransacao> LogTransacaosListar();
         //LogTransacao LogTransacaoListaCliente(int? numeroLogTransacao);

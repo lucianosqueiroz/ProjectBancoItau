@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectBancoItau.Domain.Interfaces.Services
 {
-    public interface IUsuarioService : IServiceBase<Usuario>
+    public interface IUsuarioService
     {
         IEnumerable<Usuario> BuscaTodosUsuarios();
         IEnumerable<Usuario> BuscaTodosUsuariosGerentes();

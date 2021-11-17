@@ -22,31 +22,13 @@ namespace ProjectBancoItau.API.Controllers
         // GET: api/Cliente
         public IHttpActionResult Get()
         {
-            var clientes =_clienteRepository.BuscaTodosClientes();
-
-            if (clientes.Count()>0)
-            {
-                return Ok(_clienteRepository.BuscaTodosClientes());
-            }
-            else
-            {
-                return Content(HttpStatusCode.NotFound, "Cliente não encontrado.");
-            }
+            return Ok(_clienteRepository.BuscaTodosClientes());
         }
 
         // GET: api/Cliente/5
         public IHttpActionResult Get(int id)
         {
-            var cliente = _clienteRepository.BuscaClientePorId(id);
-            if (!string.IsNullOrEmpty(cliente.Cpf))
-            {
-                return Ok(_clienteRepository.BuscaClientePorId(id));
-            }
-            else
-            {
-                return Content(HttpStatusCode.NotFound, "Cliente não encontrado.");
-            }
-            
+            return Ok(_clienteRepository.BuscaClientePorId(id));
         }
 
         // POST: api/Cliente
@@ -73,7 +55,7 @@ namespace ProjectBancoItau.API.Controllers
         }
 
         // DELETE: api/Cliente/5
-        public IHttpActionResult Delete([FromBody]Cliente cliente)
+        public IHttpActionResult Delete(Cliente cliente)
         {
             cliente = _clienteRepository.BuscaClientePorCPF(cliente.Cpf);
             if (!string.IsNullOrEmpty(cliente.Cpf)) //se o cliente for cadastrado

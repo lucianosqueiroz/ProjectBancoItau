@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectBancoItau.Domain.Interfaces.Services
 {
-    public interface ITransacaoService : IServiceBase<Transacao>
+    public interface ITransacaoService
     {
         IEnumerable<Transacao> BuscaTodosTransacaos();
         Transacao BuscaTransacaoPorId(int id);

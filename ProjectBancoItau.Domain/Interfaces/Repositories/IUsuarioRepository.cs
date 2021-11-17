@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectBancoItau.Domain.Interfaces.Repositories
 {
-    public interface IUsuarioRepository : IRepositoryBase<Usuario>
+    public interface IUsuarioRepository 
     {
         IEnumerable<Usuario> BuscaTodosUsuarios();
         IEnumerable<Usuario> BuscaTodosUsuariosGerentes();

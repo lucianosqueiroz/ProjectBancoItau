@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectBancoItau.Domain.Interfaces.Services
 {
-    public interface ILogTransacaoService : IServiceBase<LogTransacao>
+    public interface ILogTransacaoService
     {
         IEnumerable<LogTransacao> LogTransacaosListar();
         IEnumerable<LogTransacao> ExtratoResumido(int? idCliente, int? idConta, int? idTrans, DateTime dataInicial, DateTime dataFinal);

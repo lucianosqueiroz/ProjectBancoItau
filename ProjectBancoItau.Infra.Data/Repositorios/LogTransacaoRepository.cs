@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ProjectBancoItau.Infra.Data.Repositorios
 {
-    public class LogTransacaoRepository : RespositoryBase<LogTransacao>, ILogTransacaoRepository
+    public class LogTransacaoRepository : ILogTransacaoRepository
     {
         private readonly string CS = ConfigurationManager.ConnectionStrings["ProjectBancoItau"].ConnectionString;
 

@@ -9,12 +9,11 @@ using System.Threading.Tasks;
 
 namespace ProjectBancoItau.Domain.Services
 {
-    public class LogTransacaoService: ServiceBase<LogTransacao>, ILogTransacaoService
+    public class LogTransacaoService: ILogTransacaoService
     {
         private readonly ILogTransacaoRepository _logTransacaoService;
 
         public LogTransacaoService(ILogTransacaoRepository logTransacaoRepository)
-            : base(logTransacaoRepository)
         {
             _logTransacaoService = logTransacaoRepository;
         }

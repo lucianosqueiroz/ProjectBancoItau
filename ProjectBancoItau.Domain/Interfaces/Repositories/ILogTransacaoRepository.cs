@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectBancoItau.Domain.Interfaces.Repositories
 {
-    public interface ILogTransacaoRepository: IRepositoryBase<LogTransacao>
+    public interface ILogTransacaoRepository
     {
         IEnumerable<LogTransacao> LogTransacaosListar();
         //LogTransacao LogTransacaoListaCliente(int? numeroLogTransacao);

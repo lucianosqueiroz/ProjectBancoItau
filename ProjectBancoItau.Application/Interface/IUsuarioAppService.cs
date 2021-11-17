@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace ProjectBancoItau.Application.Interface
 {
-    public interface IUsuarioAppService: IAppServiceBase<Usuario>
+    public interface IUsuarioAppService
     {
-        IEnumerable<Usuario> BuscaTodosUsuarios();
-        IEnumerable<Usuario> BuscaTodosUsuariosGerentes();
-        Usuario ListaUsuarioPorLogin(string login);
-        Usuario BuscaUsuarioPorID(int? idUsuario);
+        Task<List<Usuario>> BuscaTodosUsuarios();
+        Task<List<Usuario>> BuscaTodosUsuariosGerentes();
+        Task<Usuario> ListaUsuarioPorLogin(string login);
+        Task<Usuario> BuscaUsuarioPorID(int? idUsuario);
         void InserirUsuario(Usuario usuario);
         void DeletarUsuario(Usuario usuario);
         void AtualizarUsuario(Usuario usuario);

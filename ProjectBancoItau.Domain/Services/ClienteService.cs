@@ -14,7 +14,6 @@ namespace ProjectBancoItau.Domain.Services
         private readonly IClienteRepository _clienteRepository;
 
         public ClienteService(IClienteRepository clienteRepository)
-            
         {
             _clienteRepository = clienteRepository;
         }

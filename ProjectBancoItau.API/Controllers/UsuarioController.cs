@@ -9,7 +9,6 @@ using System.Web.Http;
 
 namespace ProjectBancoItau.API.Controllers
 {
-    [RoutePrefix("api/usuario")]
     public class UsuarioController : ApiController
     {
         private readonly IUsuarioRepository _usuarioRepository;

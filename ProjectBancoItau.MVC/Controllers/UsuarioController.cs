@@ -42,6 +42,11 @@ namespace ProjectBancoItau.MVC.Controllers
             {
                 return Redirect("/Contas/BuscaClienteConta/");
             }
+            if (usuarioViewModel2.Login == null)
+            {
+                this.AddNotification("Usuário não encontrado.", NotificationType.ERROR);
+                return View();
+            }
             if (usuarioViewModel2.Gerente == false)
             {
                 this.AddNotification("Você não tem permissão de gerente.", NotificationType.ERROR);

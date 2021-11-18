@@ -8,16 +8,6 @@ C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\
 C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.Infra.Data\obj\Debug\ProjectBancoItau.Infra.Data.csprojResolveAssemblyReference.cache
 C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.Infra.Data\obj\Debug\ProjectBancoItau.Infra.Data.dll
 C:\Users\Luciano Queiroz\Documents\Visual Studio 2015\Projects\ProjectBancoItau\ProjectBancoItau.Infra.Data\obj\Debug\ProjectBancoItau.Infra.Data.pdb
-D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\obj\Debug\ProjectBancoItau.Infra.Data.csprojResolveAssemblyReference.cache
-D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\obj\Debug\ProjectBancoItau.Infra.Data.dll
-D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\obj\Debug\ProjectBancoItau.Infra.Data.pdb
-D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\bin\Debug\ProjectBancoItau.Infra.Data.dll.config
-D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\bin\Debug\ProjectBancoItau.Infra.Data.dll
-D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\bin\Debug\ProjectBancoItau.Infra.Data.pdb
-D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\bin\Debug\EntityFramework.dll
-D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\bin\Debug\ProjectBancoItau.Domain.dll
-D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\bin\Debug\ProjectBancoItau.Domain.pdb
-D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\bin\Debug\EntityFramework.xml
 C:\Users\Luciano Queiroz\Desktop\VS2\ProjectBancoItau-main\ProjectBancoItau.Infra.Data\bin\Debug\ProjectBancoItau.Infra.Data.dll.config
 C:\Users\Luciano Queiroz\Desktop\VS2\ProjectBancoItau-main\ProjectBancoItau.Infra.Data\bin\Debug\ProjectBancoItau.Infra.Data.dll
 C:\Users\Luciano Queiroz\Desktop\VS2\ProjectBancoItau-main\ProjectBancoItau.Infra.Data\bin\Debug\ProjectBancoItau.Infra.Data.pdb
@@ -28,3 +18,13 @@ C:\Users\Luciano Queiroz\Desktop\VS2\ProjectBancoItau-main\ProjectBancoItau.Infr
 C:\Users\Luciano Queiroz\Desktop\VS2\ProjectBancoItau-main\ProjectBancoItau.Infra.Data\obj\Debug\ProjectBancoItau.Infra.Data.csprojResolveAssemblyReference.cache
 C:\Users\Luciano Queiroz\Desktop\VS2\ProjectBancoItau-main\ProjectBancoItau.Infra.Data\obj\Debug\ProjectBancoItau.Infra.Data.dll
 C:\Users\Luciano Queiroz\Desktop\VS2\ProjectBancoItau-main\ProjectBancoItau.Infra.Data\obj\Debug\ProjectBancoItau.Infra.Data.pdb
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\bin\Debug\ProjectBancoItau.Infra.Data.dll.config
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\bin\Debug\ProjectBancoItau.Infra.Data.dll
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\bin\Debug\ProjectBancoItau.Infra.Data.pdb
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\bin\Debug\EntityFramework.dll
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\bin\Debug\ProjectBancoItau.Domain.dll
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\bin\Debug\ProjectBancoItau.Domain.pdb
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\bin\Debug\EntityFramework.xml
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\obj\Debug\ProjectBancoItau.Infra.Data.csprojResolveAssemblyReference.cache
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\obj\Debug\ProjectBancoItau.Infra.Data.dll
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Infra.Data\obj\Debug\ProjectBancoItau.Infra.Data.pdb

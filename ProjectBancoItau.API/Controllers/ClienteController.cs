@@ -22,23 +22,41 @@ namespace ProjectBancoItau.API.Controllers
         // GET: api/Cliente
         public IHttpActionResult Get()
         {
-            return Ok(_clienteRepository.BuscaTodosClientes());
+            var clientes = _clienteRepository.BuscaTodosClientes();
+
+            if (clientes.Count() > 0)
+            {
+                return Ok(_clienteRepository.BuscaTodosClientes());
+            }
+            else
+            {
+                return Content(HttpStatusCode.NotFound, "Cliente não encontrado.");
+            }
         }
 
         // GET: api/Cliente/5
         public IHttpActionResult Get(int id)
         {
-            return Ok(_clienteRepository.BuscaClientePorId(id));
+            var cliente = _clienteRepository.BuscaClientePorId(id);
+            if (!string.IsNullOrEmpty(cliente.Cpf))
+            {
+                return Ok(_clienteRepository.BuscaClientePorId(id));
+            }
+            else
+            {
+                return Content(HttpStatusCode.NotFound, "Cliente não encontrado.");
+            }
+
         }
 
         // POST: api/Cliente
         public IHttpActionResult Post(Cliente cliente)
         {
             if (cliente.IsValid()) //verifica se os dados do cliente são válidos (cpf no caso)
-                {
-                   _clienteRepository.InserirCliente(cliente);
-                   return Ok() ;
-                }
+            {
+                _clienteRepository.InserirCliente(cliente);
+                return Ok();
+            }
             return Content(HttpStatusCode.NotFound, "Cpf inválido");
         }
 
@@ -49,20 +67,20 @@ namespace ProjectBancoItau.API.Controllers
             {
                 _clienteRepository.AtualizarCliente(cliente);
                 return Ok();
-                
+
             }
             return Content(HttpStatusCode.NotFound, "Cpf inválido");
         }
 
         // DELETE: api/Cliente/5
-        public IHttpActionResult Delete(Cliente cliente)
+        public IHttpActionResult Delete([FromBody]Cliente cliente)
         {
             cliente = _clienteRepository.BuscaClientePorCPF(cliente.Cpf);
             if (!string.IsNullOrEmpty(cliente.Cpf)) //se o cliente for cadastrado
             {
                 Conta conta = new Conta();
                 conta = _contaRepository.BuscaContaPeloIdCliente(cliente.idCliente);
-                if (conta.idCliente == 0 ) // caso o cliente tenha aluguma conta ligada a ele
+                if (conta.idCliente == 0) // caso o cliente tenha aluguma conta ligada a ele
                 {
                     _clienteRepository.DeletarCliente(cliente);
                     return Ok();
@@ -71,7 +89,7 @@ namespace ProjectBancoItau.API.Controllers
                 {
                     return Content(HttpStatusCode.NotFound, "Cliente possui contas vinculadas.");
                 }
-                
+
             }
             return Content(HttpStatusCode.NotFound, "Cliente não encontrado.");
         }

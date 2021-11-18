@@ -15,10 +15,12 @@ namespace ProjectBancoItau.MVC.Controllers
     public class ClientesController : Controller
     {
         private readonly IClienteAppService _clienteApp;
+        private readonly IContaAppService _contaApp;
 
-        public ClientesController(IClienteAppService clienteApp)
+        public ClientesController(IClienteAppService clienteApp, IContaAppService contaApp)
         {
             _clienteApp = clienteApp;
+            _contaApp = contaApp;
         }
 
 
@@ -118,10 +120,23 @@ namespace ProjectBancoItau.MVC.Controllers
         public async Task<ActionResult> DeleteComfirmed(int id)
         {
             var cliente = _clienteApp.BuscaClientePorId(id);
-            _clienteApp.DeletarCliente(await cliente);
-            this.AddNotification("Cliente excluído com sucesso..", NotificationType.SUCCESS);
+            var conta = new Conta();
+            conta = _contaApp.BuscaContaPeloIdCliente(id);
 
-            return RedirectToAction("Index");
+            if (conta.IdConta != 0) //caso cliente tenha alguma conta vinculada, não é permitido deletar o cliente. 
+            {
+                this.AddNotification("Cliente não pode ser excluído pois possui conta vinculada.", NotificationType.ERROR);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                _clienteApp.DeletarCliente(await cliente);
+                this.AddNotification("Cliente excluído com sucesso..", NotificationType.SUCCESS);
+                return RedirectToAction("Index");
+
+            }
+
+            
         }
     }
 }

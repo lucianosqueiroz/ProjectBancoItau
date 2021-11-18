@@ -74,8 +74,17 @@ namespace ProjectBancoItau.MVC.Controllers
         // GET: Usuario/Details/5
         public async Task<ActionResult> Details(int? id)
         {
-            var usuarioViewModel = await _usuarioApp.BuscaUsuarioPorID(id);
-            return View(usuarioViewModel);
+            var usuario = await _usuarioApp.BuscaUsuarioPorID(id);
+            if (usuario.IdUsuario != 0)
+            {
+                var usuarioViewModel = Mapper.Map<Usuario, UsuarioViewModel>(usuario);
+                return View(usuarioViewModel);
+            }
+            else
+            {
+                this.AddNotification("Agência, conta ou senha inválida.", NotificationType.ERROR);
+                return View();
+            }
         }
 
         // GET: Usuario/Create

@@ -1,3 +1,4 @@
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.csprojResolveAssemblyReference.cache
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\AutoMapper.Net4.dll
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\ApplicationInsights.config
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\roslyn\csc.exe
@@ -76,6 +77,5 @@ D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\System.Web.WebPage
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\Antlr3.Runtime.pdb
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\Newtonsoft.Json.xml
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\System.Web.Http.WebHost.xml
-D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.csprojResolveAssemblyReference.cache
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.dll
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.pdb

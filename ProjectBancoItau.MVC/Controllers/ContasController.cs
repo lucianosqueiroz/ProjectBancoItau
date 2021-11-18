@@ -443,7 +443,7 @@ namespace ProjectBancoItau.MVC.Controllers
             // ViewBag.Nconta = new SelectList(_transacaoApp.BuscaTodosTransacaos(), "idTRansacao", "Nome", clienteContaTransLogTransViewModel.IdTrans);
             ViewBag.nomeCliente = cliente.Nome;
             ViewBag.dadosConta = dadosConta; //imprime view os dados do cliente.
-            ViewBag.idTrans = new SelectList(_transacaoApp.BuscaTodosTransacaos(), "idTRansacao", "Nome", clienteContaTransLogTransViewModel.IdTrans);
+            ViewBag.idTrans = new SelectList(await _transacaoApp.BuscaTodosTransacaos(), "idTRansacao", "Nome", clienteContaTransLogTransViewModel.IdTrans);
 
             TempData["contaSelecinada"] = conta;
             TempData["clienteSelecionado"] = cliente;

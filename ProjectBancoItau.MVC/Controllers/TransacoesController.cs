@@ -5,6 +5,7 @@ using ProjectBancoItau.MVC.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -21,9 +22,10 @@ namespace ProjectBancoItau.MVC.Controllers
 
 
         // GET: Transacao
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            var transacaoViewModel = Mapper.Map<IEnumerable<Transacao>, IEnumerable<TransacaoViewModel>>(_transacaoApp.BuscaTodosTransacaos());
+            List<Transacao> transacoes = await _transacaoApp.BuscaTodosTransacaos();
+            var transacaoViewModel = Mapper.Map<IEnumerable<Transacao>, IEnumerable<TransacaoViewModel>> (transacoes);
             return View(transacaoViewModel);
         }
         /*

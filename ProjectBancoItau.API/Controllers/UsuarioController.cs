@@ -12,10 +12,12 @@ namespace ProjectBancoItau.API.Controllers
     public class UsuarioController : ApiController
     {
         private readonly IUsuarioRepository _usuarioRepository;
+        private readonly IContaRepository _contaRepository;
 
-        public UsuarioController(IUsuarioRepository usuarioRepository)
+        public UsuarioController(IUsuarioRepository usuarioRepository, IContaRepository contaRepository)
         {
             _usuarioRepository = usuarioRepository;
+            _contaRepository = contaRepository;
         }
         // GET: api/usuario
         [HttpGet]
@@ -50,11 +52,18 @@ namespace ProjectBancoItau.API.Controllers
         }
 
         // GET: api/Usuario/5
-        public Usuario Get(int id)
+        [HttpGet]
+        public IHttpActionResult Get(int id)
         {
             var usuario = _usuarioRepository.BuscaUsuarioPorID(id);
-            return usuario;
-            //  return "value";
+            if (usuario.IdUsuario != 0 )
+            {
+                return Ok(usuario);
+            }
+            else
+            {
+                return Content(HttpStatusCode.NotFound, "Usuario não encontrado.");
+            }
         }
 
         [HttpGet]
@@ -73,31 +82,48 @@ namespace ProjectBancoItau.API.Controllers
         }
 
         // POST: api/usuario
-        public void Post(Usuario usuario)
+        public IHttpActionResult Post(Usuario usuario)
         {
-            if (!string.IsNullOrEmpty(usuario.Login) && string.IsNullOrEmpty(usuario.Senha)) //se a senha nem o login do usuário não for em branco, insira ele no banco
+            if (usuario.Login != null  && usuario.Senha!= null) //se a senha nem o login do usuário não for em branco, insira ele no banco
             {
                 _usuarioRepository.InserirUsuario(usuario);
+                return Ok();
             }
+            return Content(HttpStatusCode.NotFound, "Não foi possível cadastrar o usuário.");
 
         }
 
         // PUT: api/usuario/5
-        public void Put(Usuario usuario)
+        public IHttpActionResult Put(Usuario usuario)
         {
-            if (!string.IsNullOrEmpty(usuario.Login) && string.IsNullOrEmpty(usuario.Senha)) //se a senha nem o login do usuário não for em branco, insira ele no banco
+            if (usuario.Login != null && usuario.Senha != null) //se a senha nem o login do usuário não for em branco, insira ele no banco
             {
                 _usuarioRepository.AtualizarUsuario(usuario);
-
+                return Ok();
             }
+            return Content(HttpStatusCode.NotFound, "Não foi possível atualizar o usuário.");
         }
 
         // DELETE: api/usuario/5
-        public void Delete(int id)
+        public IHttpActionResult Delete([FromBody] Usuario usuario)
         {
-            Usuario usuario = new Usuario();
-            usuario = _usuarioRepository.BuscaUsuarioPorID(id);
-            _usuarioRepository.DeletarUsuario(usuario); //deleta o usuário
+            usuario = _usuarioRepository.BuscaUsuarioPorID(usuario.IdUsuario);
+            if (usuario.IdUsuario != 0) //se o cliente for cadastrado
+            {
+                Conta conta = new Conta();
+                conta = _contaRepository.BuscaContaPeloIdCliente(usuario.IdUsuario);
+                if (conta.idCliente == 0) // caso o cliente tenha aluguma conta ligada a ele
+                {
+                    _usuarioRepository.DeletarUsuario(usuario);
+                    return Ok();
+                }
+                else
+                {
+                    return Content(HttpStatusCode.NotFound, "Cliente possui contas vinculadas.");
+                }
+
+            }
+            return Content(HttpStatusCode.NotFound, "Cliente não encontrado.");
 
         }
 

@@ -9,7 +9,7 @@ namespace ProjectBancoItau.Application.Interface
 {
     public interface ITransacaoAppService
     {
-        IEnumerable<Transacao> BuscaTodosTransacaos();
+        Task<List<Transacao>> BuscaTodosTransacaos();
         Transacao BuscaTransacaoPorId(int id);
         void InserirTransacao(Transacao transacao);
         void DeletarTransacao(Transacao transacao);

@@ -25,7 +25,7 @@ namespace ProjectBancoItau.Domain.Services
 
         public Conta ContaListaCliente(int? idConta)
         {
-            return _contaService.ContaListaCliente(idConta);
+            return null; //_contaService.ContaListaCliente(idConta);
         }
 
         public void DeletarConta(Conta conta)
@@ -40,12 +40,12 @@ namespace ProjectBancoItau.Domain.Services
 
         public IEnumerable<Conta> ContasListar()
         {
-            return _contaService.ContasListar();
+            return null;//_contaService.ContasListar();
         }
 
         public Conta ContaListaClienteNumeroContaAgencia(int? numeroConta, int? numeroAgencia)
         {
-            return _contaService.ContaListaClienteNumeroContaAgencia(numeroConta,  numeroAgencia);
+            return null;//_contaService_contaService.ContaListaClienteNumeroContaAgencia(numeroConta,  numeroAgencia);
         }
 
         public void AtualizarSaldoConta(int idConta, decimal saldo)
@@ -55,17 +55,17 @@ namespace ProjectBancoItau.Domain.Services
 
         public Conta BuscaContaPeloIdCliente(int? idCliente)
         {
-           return _contaService.BuscaContaPeloIdCliente(idCliente);
+           return null;//_contaService.BuscaContaPeloIdCliente(idCliente);
         }
 
         public Conta ContaListaClientePorNumConta(int? numConta)
         {
-            return _contaService.ContaListaClientePorNumConta(numConta);
+            return null;//_contaService.ContaListaClientePorNumConta(numConta);
         }
 
         public IEnumerable<Conta> ContaListaPorAgencia(int? nAgencia)
         {
-            return _contaService.ContaListaPorAgencia(nAgencia);
+            return null;//_contaService.ContaListaPorAgencia(nAgencia);
         }
     }
 }

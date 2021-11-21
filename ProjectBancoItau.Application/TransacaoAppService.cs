@@ -50,12 +50,19 @@ namespace ProjectBancoItau.Application
            // _transacaoService.InserirTransacao(transacao);
         }
 
-        public Transacao BuscaTransacaoPorId(int id)
+        public async Task<Transacao> BuscaTransacaoPorId(int id)
         {
-            return null; //_transacaoService.BuscaTransacaoPorId(id);
+            HttpResponseMessage response = await _transacaoHttpClient.GetAsync("api/transacao?id=" + id);
+            var dados = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<Transacao>(dados);
+            }
+            return new Transacao();
+           // return null; //_transacaoService.BuscaTransacaoPorId(id);
         }
 
-        
+
     }
 
 }

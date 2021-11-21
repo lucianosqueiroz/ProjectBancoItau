@@ -148,8 +148,8 @@ namespace ProjectBancoItau.MVC.Controllers
         [HttpPost, ActionName("Delete")]
         public async Task<ActionResult> DeleteComfirmed(int id)
         {
-            var usuario = _usuarioApp.BuscaUsuarioPorID(id);
-            _usuarioApp.DeletarUsuario(await usuario);
+            var usuario = await _usuarioApp.BuscaUsuarioPorID(id);
+            _usuarioApp.DeletarUsuario( usuario);
             this.AddNotification("Usuário excluído com sucesso..", NotificationType.SUCCESS);
 
             return RedirectToAction("Index");

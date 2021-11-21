@@ -9,13 +9,13 @@ namespace ProjectBancoItau.Application.Interface
 {
     public interface IContaAppService
     {
-        IEnumerable<Conta> ContasListar();
-        IEnumerable<Conta> ContaListaPorAgencia(int? nAgencia);
-        Conta ContaListaCliente(int? idConta);
-        Conta ContaListaClientePorNumConta(int? numConta);
-        Conta BuscaContaPeloIdCliente(int? idCliente);
+        Task<List<Conta>> ContasListar();
+        Task<List<Conta>> ContaListaPorAgencia(int? nAgencia);
+        Task<Conta> ContaListaCliente(int? idConta);
+        Task<Conta> ContaListaClientePorNumConta(int? numConta);
+        Task<Conta> BuscaContaPeloIdCliente(int? idCliente);
         void InserirConta(Conta conta);
-        Conta ContaListaClienteNumeroContaAgencia(int? numeroConta, int? numeroAgencia);
+        Task<Conta> ContaListaClienteNumeroContaAgencia(int? numeroConta, int? numeroAgencia);
         void DeletarConta(Conta conta);
         void AtualizarConta(Conta conta);
         void AtualizarSaldoConta(int idConta, decimal saldo);

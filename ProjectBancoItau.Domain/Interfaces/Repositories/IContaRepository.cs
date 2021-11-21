@@ -10,8 +10,8 @@ namespace ProjectBancoItau.Domain.Interfaces.Repositories
 
     public interface IContaRepository 
     {
-        IEnumerable<Conta> ContasListar();
-        IEnumerable<Conta> ContaListaPorAgencia(int? nAgencia);
+        List<Conta> ContasListar();
+        List<Conta> ContaListaPorAgencia(int? nAgencia);
         Conta ContaListaCliente(int? idConta);//busca a conta pelo registro dela
         Conta BuscaContaPeloIdCliente(int? idCliente);
         Conta ContaListaClientePorNumConta(int? numConta);

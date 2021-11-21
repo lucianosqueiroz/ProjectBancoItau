@@ -12,12 +12,10 @@ namespace ProjectBancoItau.API.Controllers
     public class UsuarioController : ApiController
     {
         private readonly IUsuarioRepository _usuarioRepository;
-        private readonly IContaRepository _contaRepository;
 
-        public UsuarioController(IUsuarioRepository usuarioRepository, IContaRepository contaRepository)
+        public UsuarioController(IUsuarioRepository usuarioRepository)
         {
             _usuarioRepository = usuarioRepository;
-            _contaRepository = contaRepository;
         }
         // GET: api/usuario
         [HttpGet]
@@ -110,22 +108,10 @@ namespace ProjectBancoItau.API.Controllers
             usuario = _usuarioRepository.BuscaUsuarioPorID(usuario.IdUsuario);
             if (usuario.IdUsuario != 0) //se o cliente for cadastrado
             {
-                Conta conta = new Conta();
-                conta = _contaRepository.BuscaContaPeloIdCliente(usuario.IdUsuario);
-                if (conta.idCliente == 0) // caso o cliente tenha aluguma conta ligada a ele
-                {
-                    _usuarioRepository.DeletarUsuario(usuario);
-                    return Ok();
-                }
-                else
-                {
-                    return Content(HttpStatusCode.NotFound, "Cliente possui contas vinculadas.");
-                }
-
+                _usuarioRepository.DeletarUsuario(usuario);
+                return Ok();
             }
-            return Content(HttpStatusCode.NotFound, "Cliente não encontrado.");
-
+            return Content(HttpStatusCode.NotFound, "Usuario não encontrado.");
         }
-
     }
 }

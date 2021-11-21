@@ -84,7 +84,7 @@ namespace ProjectBancoItau.Infra.Data.Repositorios
             }
         }
 
-        public IEnumerable<Conta> ContaListaPorAgencia(int? nAgencia)
+        public List<Conta> ContaListaPorAgencia(int? nAgencia)
         {
             {
                 //retorna lista de todas as contas de uma determinada agencia
@@ -272,6 +272,12 @@ namespace ProjectBancoItau.Infra.Data.Repositorios
                 cmd.ExecuteNonQuery();
             }
         }
+
+        List<Conta> IContaRepository.ContasListar()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
 

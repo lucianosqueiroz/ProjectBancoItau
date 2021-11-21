@@ -10,7 +10,7 @@ namespace ProjectBancoItau.Application.Interface
     public interface ITransacaoAppService
     {
         Task<List<Transacao>> BuscaTodosTransacaos();
-        Transacao BuscaTransacaoPorId(int id);
+        Task<Transacao> BuscaTransacaoPorId(int id);
         void InserirTransacao(Transacao transacao);
         void DeletarTransacao(Transacao transacao);
         void AtualizarTransacao(Transacao transacao);

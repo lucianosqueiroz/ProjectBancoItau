@@ -73,7 +73,7 @@ namespace ProjectBancoItau.API.Controllers
         }
 
         // DELETE: api/Cliente/5
-        public IHttpActionResult Delete([FromBody]Cliente cliente)
+        public  IHttpActionResult Delete([FromBody]Cliente cliente)
         {
             cliente = _clienteRepository.BuscaClientePorCPF(cliente.Cpf);
             if (!string.IsNullOrEmpty(cliente.Cpf)) //se o cliente for cadastrado

@@ -29,5 +29,18 @@ namespace ProjectBancoItau.API.Controllers
                 return Content(HttpStatusCode.NotFound, "Transações não encontradas.");
             }
         }
+        public IHttpActionResult Get(int id)
+        {
+            var transacao = _transacaoRepository.BuscaTransacaoPorId(id);
+            if (transacao.IdTransacao!=0)
+            {
+                return Ok(transacao);
+            }
+            else
+            {
+                return Content(HttpStatusCode.NotFound, "Transação  não encontrada.");
+            }
+
+        }
     }
 }

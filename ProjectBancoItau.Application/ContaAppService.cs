@@ -1,9 +1,12 @@
-﻿using ProjectBancoItau.Application.Interface;
+﻿using Newtonsoft.Json;
+using ProjectBancoItau.Application.Interface;
 using ProjectBancoItau.Domain.Entities;
 using ProjectBancoItau.Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,63 +14,150 @@ namespace ProjectBancoItau.Application
 {
     public class ContaAppService : IContaAppService
     {
-        private readonly IContaService _contaService;
+        //private readonly IContaService _contaService;
+        HttpClient _contaHttpClient = new HttpClient();
 
-        public ContaAppService(IContaService contaService)
+        public ContaAppService()
         {
-            _contaService = contaService;
+            _contaHttpClient.BaseAddress = new Uri("http://localhost:63454/");
+            _contaHttpClient.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         public void AtualizarConta(Conta conta)
         {
-            _contaService.AtualizarConta(conta);
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Put,
+                RequestUri = new Uri("http://localhost:63454/api/conta/PutSaldo"),
+                Content = new StringContent(JsonConvert.SerializeObject(conta), Encoding.UTF8, "application/json")
+            };
+            var response = _contaHttpClient.SendAsync(request);
         }
 
-        public Conta ContaListaCliente(int? idConta)
+        public async Task<Conta> ContaListaCliente(int? idConta)
         {
-            return _contaService.ContaListaCliente(idConta);
+            HttpResponseMessage response = await _contaHttpClient.GetAsync("api/conta?idConta=" + idConta);
+            var dados = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<Conta>(dados);
+            }
+            return new Conta();
+
+            // return _contaService.ContaListaCliente(idConta);
         }
 
         public void DeletarConta(Conta conta)
         {
-            _contaService.DeletarConta(conta);
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Delete,
+                RequestUri = new Uri("http://localhost:63454/api/conta/"),
+                Content = new StringContent(JsonConvert.SerializeObject(conta), Encoding.UTF8, "application/json")
+            };
+            var response = _contaHttpClient.SendAsync(request);
+
+            //_contaService.DeletarConta(conta);
         }
 
         public void InserirConta(Conta conta)
         {
-            _contaService.InserirConta(conta);
+
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new Uri("http://localhost:63454/api/conta/"),
+                Content = new StringContent(JsonConvert.SerializeObject(conta), Encoding.UTF8, "application/json")
+            };
+            var response = _contaHttpClient.SendAsync(request);
+
+
+            //_contaService.InserirConta(conta);
         }
 
-        public IEnumerable<Conta> ContasListar()
+        public async Task<List<Conta>> ContasListar()
         {
-            return _contaService.ContasListar();
+            HttpResponseMessage response = await _contaHttpClient.GetAsync("api/conta");
+            if (response.IsSuccessStatusCode)
+            {
+                var dados = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<List<Conta>>(dados);
+            }
+            return new List<Conta>();
+
+            //return _contaService.ContasListar();
         }
 
 
-        public void AtualizarSaldoConta(int idConta, decimal saldo)
+        public  void AtualizarSaldoConta(int idConta, decimal saldo)
         {
-            _contaService.AtualizarSaldoConta(idConta, saldo);
+            Conta conta = new Conta()
+            {
+                IdConta = idConta,
+                Saldo = saldo
+            };
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Put,
+                RequestUri = new Uri("http://localhost:63454/api/conta/PutSaldo"),
+                Content = new StringContent(JsonConvert.SerializeObject(conta), Encoding.UTF8, "application/json")
+            };
+            var response = _contaHttpClient.SendAsync(request);
         }
 
-        public Conta BuscaContaPeloIdCliente(int? idCliente)
+        public async Task<Conta> BuscaContaPeloIdCliente(int? idCliente)
         {
-            return _contaService.BuscaContaPeloIdCliente(idCliente);
+            HttpResponseMessage response = await _contaHttpClient.GetAsync("api/conta/" + idCliente);
+            var dados = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<Conta>(dados);
+            }
+            return new Conta();
+            //return _contaService.BuscaContaPeloIdCliente(idCliente);
         }
 
-        public Conta ContaListaClienteNumeroContaAgencia(int? numeroConta, int? numeroAgencia)
+        public async Task<Conta> ContaListaClienteNumeroContaAgencia(int? numeroConta, int? numeroAgencia)
         {
-            return _contaService.ContaListaClienteNumeroContaAgencia(numeroConta, numeroAgencia);
+            
+   
+            HttpResponseMessage response = await _contaHttpClient.GetAsync("api/conta?numeroConta=" + numeroConta+"&numeroAgencia=" + numeroAgencia);
+            var dados = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<Conta>(dados);
+            }
+
+            return new Conta();
+            // return _contaService.ContaListaClienteNumeroContaAgencia(numeroConta, numeroAgencia);
         }
 
-        public Conta ContaListaClientePorNumConta(int? numConta)
+        public async Task<Conta> ContaListaClientePorNumConta(int? numConta)
         {
-            return _contaService.ContaListaClientePorNumConta(numConta);
+            HttpResponseMessage response = await _contaHttpClient.GetAsync("api/conta/" + numConta);
+            var dados = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<Conta>(dados);
+            }
+
+            return new Conta();
         }
 
-        public IEnumerable<Conta> ContaListaPorAgencia(int? nAgencia)
+        public async Task<List<Conta>> ContaListaPorAgencia(int? nAgencia)
         {
-            return _contaService.ContaListaPorAgencia(nAgencia);
+            HttpResponseMessage response = await _contaHttpClient.GetAsync("api/conta/" + nAgencia);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var dados = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<List<Conta>>(dados);
+            }
+
+            return new List<Conta>();
+
         }
-    }
-    
+
+    } 
 }

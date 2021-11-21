@@ -121,7 +121,7 @@ namespace ProjectBancoItau.MVC.Controllers
         {
             var cliente = _clienteApp.BuscaClientePorId(id);
             var conta = new Conta();
-            conta = _contaApp.BuscaContaPeloIdCliente(id);
+            conta = await _contaApp.BuscaContaPeloIdCliente(id);
 
             if (conta.IdConta != 0) //caso cliente tenha alguma conta vinculada, não é permitido deletar o cliente. 
             {

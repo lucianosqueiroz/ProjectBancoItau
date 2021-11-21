@@ -6,6 +6,7 @@ using ProjectBancoItau.MVC.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -34,10 +35,10 @@ namespace ProjectBancoItau.MVC.Controllers
 
 
         [HttpPost]
-        public ActionResult LogarContaCliente(ContaViewModel contaViewModel)
+        public async Task<ActionResult> LogarContaCliente(ContaViewModel contaViewModel)
         {
-            var contaCliente = _contaApp.ContaListaClienteNumeroContaAgencia(contaViewModel.NConta, contaViewModel.NAgencia);  //localizar objeto conta pelo numero da conta
-                                                                                                                               //validar senha
+            var contaCliente = await _contaApp.ContaListaClienteNumeroContaAgencia(contaViewModel.NConta, contaViewModel.NAgencia);  //localizar objeto conta pelo numero da conta
+                                                                                                                                     //validar senha
             if ((contaCliente.NConta == contaViewModel.NConta) && (contaCliente.Senha == contaViewModel.Senha))
             {
                 return RedirectToAction("ClienteLogado", new { id = contaCliente.IdConta });//redireciona para a página com detalhes do cliente.
@@ -52,10 +53,10 @@ namespace ProjectBancoItau.MVC.Controllers
         }
 
 
-        public async System.Threading.Tasks.Task<ActionResult> ClienteLogado(int id)
+        public async Task<ActionResult> ClienteLogado(int id)
         {
 
-            var contaViewModel = Mapper.Map<Conta, ContaViewModel>(_contaApp.ContaListaCliente(id));//lista determinada conta pelo Id da conta
+            var contaViewModel = Mapper.Map<Conta, ContaViewModel>(await _contaApp.ContaListaCliente(id));//lista determinada conta pelo Id da conta
 
 
             //acrescentando os dados do cliente em uma ClienteViewModel (View model especial com propriedades do Cliente e sua respectiva conta)
@@ -102,7 +103,7 @@ namespace ProjectBancoItau.MVC.Controllers
                 {
                     var clienteContaViewModel2 = new ClienteContaViewModel(); //objeto viewmodel com os dados atualizados do cliente e conta
 
-                    clienteContaViewModel2 = clienteContaViewModel = Mapper.Map<Conta, ClienteContaViewModel>(_contaApp.BuscaContaPeloIdCliente(cliente.idCliente));
+                    clienteContaViewModel2 = clienteContaViewModel = Mapper.Map<Conta, ClienteContaViewModel>(await _contaApp.BuscaContaPeloIdCliente(cliente.idCliente));
 
                     clienteContaViewModel2.Nome = cliente.Nome;
                     clienteContaViewModel2.Cpf = cliente.Cpf;
@@ -126,7 +127,7 @@ namespace ProjectBancoItau.MVC.Controllers
                 Conta conta = new Conta();
                 Cliente cliente = new Cliente();
 
-                conta = _contaApp.ContaListaClientePorNumConta(clienteContaViewModel.NConta);
+                conta = await _contaApp.ContaListaClientePorNumConta(clienteContaViewModel.NConta);
                 if (conta.IdConta != 0) //se foi encontrado pelo menos uma conta, prosseguir com a pesquisa
                 {
                     cliente = await _clienteApp.BuscaClientePorId(conta.idCliente);
@@ -160,7 +161,7 @@ namespace ProjectBancoItau.MVC.Controllers
             //preenchido somente numero agencia
             if (string.IsNullOrEmpty(clienteContaViewModel.Nome) && clienteContaViewModel.NConta == 0 && clienteContaViewModel.NAgencia != 0) //pesquisa por Agencia sem preenchimento dos campos conta e agencia
             {
-                var contaViewModelLista = Mapper.Map<IEnumerable<Conta>, IEnumerable<ContaViewModel>>(_contaApp.ContaListaPorAgencia(clienteContaViewModel.NAgencia));
+                var contaViewModelLista = Mapper.Map<IEnumerable<Conta>, IEnumerable<ContaViewModel>>(await _contaApp.ContaListaPorAgencia(clienteContaViewModel.NAgencia));
 
                 if (contaViewModelLista.Count() == 0)//se não encontrar nenhuma agência cadastrada
                 {
@@ -208,10 +209,10 @@ namespace ProjectBancoItau.MVC.Controllers
 
         }
 
-        public ActionResult SacarDinheiro(int id)
+        public async Task<ActionResult> SacarDinheiro(int id)
         {
 
-            var clienteContaViewModel = Mapper.Map<Conta, ClienteContaViewModel>(_contaApp.ContaListaCliente(id));//lista determinada conta pelo Id da conta
+            var clienteContaViewModel = Mapper.Map<Conta, ClienteContaViewModel>(await _contaApp.ContaListaCliente(id));//lista determinada conta pelo Id da conta
             return View(clienteContaViewModel);
 
 
@@ -220,7 +221,7 @@ namespace ProjectBancoItau.MVC.Controllers
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> SacarDinheiro(ClienteContaViewModel clienteContaViewModel, decimal valorSaque)
         {
-            var conta = Mapper.Map<Conta, ContaViewModel>(_contaApp.ContaListaCliente(clienteContaViewModel.IdConta));//lista determinada conta pelo Id da conta
+            var conta = Mapper.Map<Conta, ContaViewModel>(await _contaApp.ContaListaCliente(clienteContaViewModel.IdConta));//lista determinada conta pelo Id da conta
 
 
             //acrescentando os dados do cliente em uma ClienteViewModel (View model especial com propriedades do Cliente e sua respectiva conta)
@@ -243,11 +244,9 @@ namespace ProjectBancoItau.MVC.Controllers
                         DataTrans = DateTime.Now,
 
                     };
-                    _logTransacaoApp.InserirLogTransacao(logTransacao); //salva os dados da transação banco
-
                     _contaApp.AtualizarSaldoConta(conta.IdConta, conta.Saldo); //atualiza saldo conta cliente
-
-                    return Redirect("/Contas/ClienteLogado/" + clienteContaViewModel.IdConta); //redireciona para a página com detalhes do cliente.
+                    _logTransacaoApp.InserirLogTransacao(logTransacao); //salva os dados da transação banco
+                    return RedirectToAction("ClienteLogado", new { id = clienteContaViewModel.IdConta });//redireciona para a página com detalhes do cliente
                 }
                 else
                 {
@@ -271,13 +270,13 @@ namespace ProjectBancoItau.MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Depositar(FormCollection form)
+        public async Task<ActionResult> Depositar(FormCollection form)
         {
             var conta = new Conta();
 
             conta.NConta = Convert.ToInt32(form["conta"]);
             conta.NAgencia = Convert.ToInt32(form["agencia"]);
-            conta = _contaApp.ContaListaClienteNumeroContaAgencia(conta.NConta, conta.NAgencia);
+            conta = await _contaApp.ContaListaClienteNumeroContaAgencia(conta.NConta, conta.NAgencia);
             var tipoDeposito = form["opcaoSelecionada"];
             var valorDeposito = Convert.ToDecimal(form["valor"]);
 
@@ -298,8 +297,7 @@ namespace ProjectBancoItau.MVC.Controllers
                     };
 
                     _logTransacaoApp.InserirLogTransacao(logTransacao); //cria o registro da transação de depósito em banco
-
-                    return View();
+                    return RedirectToAction("ClienteLogado", new { id = conta.IdConta });//redireciona para a página com detalhes do cliente
                 }
 
                 if (tipoDeposito == "cheque") //deposito em cheque
@@ -314,8 +312,8 @@ namespace ProjectBancoItau.MVC.Controllers
                     };
 
                     _logTransacaoApp.InserirLogTransacao(logTransacao); //cria o registro da transação de depósito em banco
-
-                    return View();
+                    return RedirectToAction("ClienteLogado", new { id = conta.IdConta });//redireciona para a página com detalhes do cliente
+                    //return View();
                 }
             }
 
@@ -324,25 +322,25 @@ namespace ProjectBancoItau.MVC.Controllers
             return View();
         }
 
-        public ActionResult Transferencia(int id)
+        public async Task<ActionResult> Transferencia(int id)
         {
 
-            var clienteContaViewModel = Mapper.Map<Conta, ClienteContaViewModel>(_contaApp.ContaListaCliente(id));//lista determinada conta pelo Id da conta
+            var clienteContaViewModel = Mapper.Map<Conta, ClienteContaViewModel>(await _contaApp.ContaListaCliente(id));//lista determinada conta pelo Id da conta
             return View(clienteContaViewModel);
 
 
         }
 
         [HttpPost]
-        public ActionResult Transferencia(FormCollection form, ClienteContaViewModel origemClienteContaViewModel)
+        public async Task<ActionResult>  Transferencia(FormCollection form, ClienteContaViewModel origemClienteContaViewModel)
         {
             var contaOrigem = new Conta();
             var contaDestino = new Conta();
 
             contaDestino.NConta = Convert.ToInt32(form["conta"]);
             contaDestino.NAgencia = Convert.ToInt32(form["agencia"]);
-            contaDestino = _contaApp.ContaListaClienteNumeroContaAgencia(contaDestino.NConta, contaDestino.NAgencia); //localiza a conta de destino
-            contaOrigem = _contaApp.ContaListaCliente(origemClienteContaViewModel.IdConta); //localiza a conta de origem
+            contaDestino = await _contaApp.ContaListaClienteNumeroContaAgencia(contaDestino.NConta, contaDestino.NAgencia); //localiza a conta de destino
+            contaOrigem = await _contaApp.ContaListaCliente(origemClienteContaViewModel.IdConta); //localiza a conta de origem
             var tipoTransferencia = form["opcaoSelecionada"];
             var valorTransferencia = Convert.ToDecimal(form["valor"]);
 
@@ -381,17 +379,18 @@ namespace ProjectBancoItau.MVC.Controllers
                         };
                         var logTransacaoOrigem = new LogTransacao() //monta objeto com os dados da transação
                         {
-                            IdConta = contaDestino.IdConta,
-                            IdCliente = contaDestino.idCliente,
-                            IdTrans = 7, //id 2 para Depósito em dinheiro, 5 deposito em cheque, 6 doc, 7 ted.
+                            IdConta = contaOrigem.IdConta,
+                            IdCliente = contaOrigem.idCliente,
+                            IdTrans = 6, //id 2 para Depósito em dinheiro, 5 deposito em cheque, 6 doc, 7 ted.
                             ValorTrans = valorTransferencia,
                             DataTrans = DateTime.Now,
                         };
 
                         _logTransacaoApp.InserirLogTransacao(logTransacaoContaDestino); //cria o registro da transação de depósito em banco
                         _logTransacaoApp.InserirLogTransacao(logTransacaoOrigem);
-
-                        return View();
+                        return RedirectToAction("ClienteLogado", new { id = contaOrigem.IdConta });
+                        //return Redirect("/Contas/ClienteLogado/" + contaOrigem.IdConta);
+                        //return View();
                     }
 
                     if (tipoTransferencia == "ted") //deposito em cheque
@@ -400,24 +399,24 @@ namespace ProjectBancoItau.MVC.Controllers
                         {
                             IdConta = contaDestino.IdConta,
                             IdCliente = contaDestino.idCliente,
-                            IdTrans = 5, //id 2 para Depósito em dinheiro, 3 deposito em cheque, 4 doc, 5 ted.
+                            IdTrans = 7, //id 2 para Depósito em dinheiro, 3 deposito em cheque, 4 doc, 5 ted.
                             ValorTrans = valorTransferencia,
                             DataTrans = DateTime.Now,
                         };
                         var logTransacaoContaOrigem = new LogTransacao() //monta objeto com os dados da transação
                         {
-                            IdConta = contaDestino.IdConta,
-                            IdCliente = contaDestino.idCliente,
-                            IdTrans = 5, //id 2 para Depósito em dinheiro, 3 deposito em cheque, 4 doc, 5 ted.
+                            IdConta = contaOrigem.IdConta,
+                            IdCliente = contaOrigem.idCliente,
+                            IdTrans = 7, //id 2 para Depósito em dinheiro, 3 deposito em cheque, 4 doc, 5 ted.
                             ValorTrans = valorTransferencia,
                             DataTrans = DateTime.Now,
                         };
 
-                        _logTransacaoApp.InserirLogTransacao(logTransacaoContaDestino); //cria o registro da transação de depósito em banco
-                        _logTransacaoApp.InserirLogTransacao(logTransacaoContaOrigem);
+                        _logTransacaoApp.InserirLogTransacao(logTransacaoContaDestino); //cria o registro da transação de transferencia relacionada na conta de destino
+                        _logTransacaoApp.InserirLogTransacao(logTransacaoContaOrigem);// cria log da transação de transferencia na conta de origem
 
 
-                        return View();
+                        return RedirectToAction("ClienteLogado", new { id = contaOrigem.IdConta });
                     }
 
                 }
@@ -434,7 +433,7 @@ namespace ProjectBancoItau.MVC.Controllers
             var transacoes = _transacaoApp.BuscaTodosTransacaos();
 
             Conta conta = new Conta();
-            conta = _contaApp.ContaListaCliente(id);
+            conta = await  _contaApp.ContaListaCliente(id);
 
             Cliente cliente = new Cliente();
             cliente = await _clienteApp.BuscaClientePorId(conta.idCliente);
@@ -458,7 +457,7 @@ namespace ProjectBancoItau.MVC.Controllers
 
         [HttpPost]
 
-        public ActionResult Extrato(ClienteContaTransLogTransViewModel clienteContaTransLogTransViewModel, DateTime dataInicial, DateTime dataFinal)
+        public async Task<ActionResult> Extrato(ClienteContaTransLogTransViewModel clienteContaTransLogTransViewModel, DateTime dataInicial, DateTime dataFinal)
         {
             var conta = TempData["contaSelecinada"] as Conta;
             var cliente = TempData["clienteSelecionado"] as Cliente;
@@ -468,7 +467,7 @@ namespace ProjectBancoItau.MVC.Controllers
             // conta = _contaApp.ContaListaCliente(clienteContaTransLogTransViewModel.IdConta);
 
             var transacao = new Transacao();
-            transacao = _transacaoApp.BuscaTransacaoPorId(clienteContaTransLogTransViewModel.IdTrans);//pega o tipo de transacao que será mostrado no extrato
+            transacao = await _transacaoApp.BuscaTransacaoPorId(clienteContaTransLogTransViewModel.IdTrans);//pega o tipo de transacao que será mostrado no extrato
 
             var clienteContaTransLogTransViewModel2 = Mapper.Map<IEnumerable<LogTransacao>,
                 IEnumerable<ClienteContaTransLogTransViewModel>>(_logTransacaoApp.ExtratoResumido(conta.idCliente, conta.IdConta,
@@ -512,7 +511,7 @@ namespace ProjectBancoItau.MVC.Controllers
         public async System.Threading.Tasks.Task<ActionResult> Index()
         //List<Conta> Contas = new List<Conta>();
         {
-            var contaViewModel = Mapper.Map<IEnumerable<Conta>, IEnumerable<ContaViewModel>>(_contaApp.ContasListar());
+            var contaViewModel = Mapper.Map<IEnumerable<Conta>, IEnumerable<ContaViewModel>>(await _contaApp.ContasListar());
             List<ClienteContaViewModel> listaContaClienteViewModel = new List<ClienteContaViewModel>();
 
             //acrescentando os dados do cliente em uma ClienteViewModel (View model especial com propriedades do Cliente e sua respectiva conta)
@@ -546,7 +545,7 @@ namespace ProjectBancoItau.MVC.Controllers
         // GET: Conta/Details/5
         public async System.Threading.Tasks.Task<ActionResult> Details(int id)
         {
-            var contaViewModel = Mapper.Map<Conta, ContaViewModel>(_contaApp.ContaListaCliente(id));//lista determinada conta pelo Id da conta
+            var contaViewModel = Mapper.Map<Conta, ContaViewModel>(await _contaApp.ContaListaCliente(id));//lista determinada conta pelo Id da conta
 
 
             //acrescentando os dados do cliente em uma ClienteViewModel (View model especial com propriedades do Cliente e sua respectiva conta)
@@ -646,10 +645,10 @@ namespace ProjectBancoItau.MVC.Controllers
         }
 
         // GET: Conta/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
-            var conta = _contaApp.ContaListaCliente(id);
-            var clienteContaViewModel = Mapper.Map<Conta, ClienteContaViewModel>(conta);
+            var contaDomain = await _contaApp.ContaListaCliente(id);
+            var clienteContaViewModel = Mapper.Map<Conta, ClienteContaViewModel>(contaDomain);
 
             //ViewBag.idCliente = new SelectList(_clienteApp.BuscaTodosClientes(), "idCliente", "Nome", clienteContaViewModel.idCliente);
 
@@ -672,20 +671,20 @@ namespace ProjectBancoItau.MVC.Controllers
         }
 
         // GET: Conta/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
 
-            var conta = _contaApp.ContaListaCliente(id);
-            var contaViewModel = Mapper.Map<Conta, ContaViewModel>(conta);
+            var contaDomain = await _contaApp.ContaListaCliente(id);
+            var contaViewModel = Mapper.Map<Conta, ContaViewModel>(contaDomain);
 
             return View(contaViewModel);
         }
 
         // POST: Conta/Delete/5
         [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteComfirmed(int id)
+        public async Task<ActionResult> DeleteComfirmed(int id)
         {
-            var conta = _contaApp.ContaListaCliente(id);
+            var conta = await _contaApp.ContaListaCliente(id);
             _contaApp.DeletarConta(conta);
 
             return RedirectToAction("Index");

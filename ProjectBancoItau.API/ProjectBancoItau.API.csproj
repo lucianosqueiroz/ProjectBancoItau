@@ -215,6 +215,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\ContaController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\LogTransacaoController.cs" />
     <Compile Include="Controllers\TransacaoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />

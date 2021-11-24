@@ -12,6 +12,7 @@ namespace ProjectBancoItau.Domain.Entities
         public int idCliente { get; set; }
         public string Cpf { get; set; }
         public string Nome { get; set; }
+        public string Email { get; set; }
         public virtual IEnumerable<Conta> Contas { get; set; }
 
         public bool IsValid ()

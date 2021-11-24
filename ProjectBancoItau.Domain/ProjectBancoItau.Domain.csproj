@@ -44,6 +44,7 @@
     <Compile Include="Conexao\Conexao.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Conta.cs" />
+    <Compile Include="Entities\Email.cs" />
     <Compile Include="Entities\LogTransacao.cs" />
     <Compile Include="Entities\Transacao.cs" />
     <Compile Include="Entities\Usuario.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Interfaces\Repositories\IUsuarioRepository.cs" />
     <Compile Include="Interfaces\Services\IClienteService.cs" />
     <Compile Include="Interfaces\Services\IContaService.cs" />
+    <Compile Include="Interfaces\Services\IEmailService.cs" />
     <Compile Include="Interfaces\Services\ILogTransacaoService.cs" />
     <Compile Include="Interfaces\Services\IServiceBase.cs" />
     <Compile Include="Interfaces\Services\ITransacaoService.cs" />
@@ -62,6 +64,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ClienteService.cs" />
     <Compile Include="Services\ContaServie.cs" />
+    <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\LogTransacaoService.cs" />
     <Compile Include="Services\RegrasNegócio\Cliente\CpfServices.cs" />
     <Compile Include="Services\ServiceBase.cs" />

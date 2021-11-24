@@ -80,7 +80,7 @@ namespace ProjectBancoItau.Infra.Data.Repositorios
             }
         }
 
-        
+
 
         public Cliente BuscaClientePorCPF(string cpfCliente)
         {
@@ -91,7 +91,7 @@ namespace ProjectBancoItau.Infra.Data.Repositorios
                 SqlCommand cmd = new SqlCommand("[PBSP_ClientePeloCPF]", con);
 
                 SqlParameter param = new SqlParameter();
-                cmd.Parameters.AddWithValue("@cpfCliente",cpfCliente);
+                cmd.Parameters.AddWithValue("@cpfCliente", cpfCliente);
                 cmd.CommandType = CommandType.StoredProcedure;
                 con.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -153,11 +153,15 @@ namespace ProjectBancoItau.Infra.Data.Repositorios
                     cliente.idCliente = Convert.ToInt32(dr["idCliente"]);
                     cliente.Cpf = dr["Cpf"].ToString();
                     cliente.Nome = dr["Nome"].ToString();
+                    cliente.Email = dr["Email"].ToString();
                 }
 
                 return cliente;
             }
-        }
-    }
 
+        }
+
+        
+
+    }
 }

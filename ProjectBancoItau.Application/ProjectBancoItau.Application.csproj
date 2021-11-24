@@ -47,9 +47,11 @@
     <Compile Include="AppServiceBase.cs" />
     <Compile Include="ClienteAppService.cs" />
     <Compile Include="ContaAppService.cs" />
+    <Compile Include="EmailAppService.cs" />
     <Compile Include="Interface\IAppServiceBase.cs" />
     <Compile Include="Interface\IClienteAppService.cs" />
     <Compile Include="Interface\IContaAppService.cs" />
+    <Compile Include="Interface\IEmailAppService.cs" />
     <Compile Include="Interface\ILogTransacaoAppService.cs" />
     <Compile Include="Interface\ITransacaoAppService.cs" />
     <Compile Include="Interface\IUsuarioAppService.cs" />

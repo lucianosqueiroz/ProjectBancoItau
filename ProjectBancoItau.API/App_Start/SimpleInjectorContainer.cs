@@ -29,12 +29,14 @@ namespace ProjectBancoItau.API.App_Start
             container.Register<IContaAppService, ContaAppService>();
             container.Register<ITransacaoAppService, TransacaoAppService>();
             container.Register<ILogTransacaoAppService, LogTransacaoAppService>();
+            container.Register<IEmailAppService, EmailAppService>();
 
             container.Register<IUsuarioService, UsuarioService>();
             container.Register<IClienteService, ClienteService>();
             container.Register<IContaService, ContaService>();
             container.Register<ITransacaoService, TransacaoService>();
             container.Register<ILogTransacaoService, LogTransacaoService>();
+            container.Register<IEmailService, EmailService>();
 
             container.Register<IUsuarioRepository, UsuarioRepository>();
             container.Register<IClienteRepository, ClienteRepository>();

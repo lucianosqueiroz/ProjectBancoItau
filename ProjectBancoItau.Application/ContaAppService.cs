@@ -16,9 +16,11 @@ namespace ProjectBancoItau.Application
     {
         //private readonly IContaService _contaService;
         HttpClient _contaHttpClient = new HttpClient();
+        private readonly IEmailService _emailAppService;
 
-        public ContaAppService()
+        public ContaAppService(IEmailService emailAppService)
         {
+            _emailAppService = emailAppService;
             _contaHttpClient.BaseAddress = new Uri("http://localhost:63454/");
             _contaHttpClient.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
@@ -104,6 +106,16 @@ namespace ProjectBancoItau.Application
                 Content = new StringContent(JsonConvert.SerializeObject(conta), Encoding.UTF8, "application/json")
             };
             var response = _contaHttpClient.SendAsync(request);
+        }
+
+        public void EnviaEmail(Conta contaOrigem, Conta contaDestino)
+        {
+           /* Cliente clienteOrigem = new Cliente();
+            Cliente clienteDestino = new Cliente();
+
+            clienteOrigem = _h
+
+            _emailAppService.Enviar()*/
         }
 
         public async Task<Conta> BuscaContaPeloIdCliente(int? idCliente)

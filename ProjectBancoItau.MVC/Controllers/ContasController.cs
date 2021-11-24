@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using PagedList;
 using ProjectBancoItau.Application.Interface;
 using ProjectBancoItau.Domain.Entities;
 using ProjectBancoItau.MVC.Extensions;
 using ProjectBancoItau.MVC.ViewModels;
+using Rotativa;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,13 +20,15 @@ namespace ProjectBancoItau.MVC.Controllers
         private readonly IClienteAppService _clienteApp;
         private readonly ITransacaoAppService _transacaoApp;
         private readonly ILogTransacaoAppService _logTransacaoApp;
+        private readonly IEmailAppService _emailApp;
 
-        public ContasController(IContaAppService contaApp, IClienteAppService clienteApp, ILogTransacaoAppService logTransacaoApp, ITransacaoAppService transacaoApp)
+        public ContasController(IContaAppService contaApp, IClienteAppService clienteApp, ILogTransacaoAppService logTransacaoApp, ITransacaoAppService transacaoApp, IEmailAppService emailApp)
         {
             _contaApp = contaApp;
             _clienteApp = clienteApp;
             _transacaoApp = transacaoApp;
             _logTransacaoApp = logTransacaoApp;
+            _emailApp = emailApp;
         }
 
         public ActionResult LogarContaCliente()
@@ -340,7 +344,14 @@ namespace ProjectBancoItau.MVC.Controllers
             contaDestino.NConta = Convert.ToInt32(form["conta"]);
             contaDestino.NAgencia = Convert.ToInt32(form["agencia"]);
             contaDestino = await _contaApp.ContaListaClienteNumeroContaAgencia(contaDestino.NConta, contaDestino.NAgencia); //localiza a conta de destino
-            contaOrigem = await _contaApp.ContaListaCliente(origemClienteContaViewModel.IdConta); //localiza a conta de origem
+            contaOrigem = await _contaApp.ContaListaCliente(origemClienteContaViewModel.IdConta); //localiza a conta de 
+
+            Cliente clienteOrigem = new Cliente();
+            Cliente clienteDestino = new Cliente();
+
+            clienteOrigem = await _clienteApp.BuscaClientePorId(contaOrigem.idCliente);
+            clienteDestino = await _clienteApp.BuscaClientePorId(contaDestino.idCliente);
+
             var tipoTransferencia = form["opcaoSelecionada"];
             var valorTransferencia = Convert.ToDecimal(form["valor"]);
 
@@ -363,9 +374,28 @@ namespace ProjectBancoItau.MVC.Controllers
 
                     contaDestino.Saldo = contaDestino.Saldo + valorTransferencia;
                     _contaApp.AtualizarSaldoConta(contaDestino.IdConta, contaDestino.Saldo); //atualiza saldo no banco
+                    Email emailContaDestino = new Email()//preparando corpo e-mail para o recebedor da transferência
+                    {
+                        de = clienteDestino.Email,
+                        para = clienteDestino.Email,
+                        assunto = "Transferência entre contas.",
+                        mensagem = "Transferência realizada da conta " + contaOrigem.NConta + " - " + contaOrigem.CDigito + " para conta "+ contaDestino.NConta + 
+                            " - " + contaDestino.CDigito + " no valor de R$" + valorTransferencia + ". Seu saldo atual é R$" + contaDestino.Saldo + "."
+                    };
+                    _emailApp.Enviar(emailContaDestino);//envio do email para o cliente de destino
+
 
                     contaOrigem.Saldo = contaOrigem.Saldo - valorTransferencia;
                     _contaApp.AtualizarSaldoConta(contaOrigem.IdConta, contaOrigem.Saldo); //atualiza saldo no banco
+                    Email emailContaOrigem = new Email()//objeto email para ser enviado ao cliente de origem da transferência
+                    {
+                        de = clienteOrigem.Email,
+                        para = clienteOrigem.Email,
+                        assunto = "Transferência entre contas.",
+                        mensagem = "Transferência realizada da conta " + contaOrigem.NConta + " - " + contaOrigem.CDigito + " para conta " + contaDestino.NConta +
+                            " - " + contaDestino.CDigito + " no valor de R$" + valorTransferencia + ". Seu saldo atual é R$" + contaOrigem.Saldo + "."
+                    };
+                    _emailApp.Enviar(emailContaOrigem);//enviando o e-mail para o cliente de origem.
 
                     if (tipoTransferencia == "doc") //deposito em dinheiro
                     {
@@ -502,11 +532,28 @@ namespace ProjectBancoItau.MVC.Controllers
 
             ViewBag.nomeCliente = cliente.Nome;
             ViewBag.dadosConta = dadosConta;
+            //int pagNumero = 1;
 
-
+            TempData["TempData_clienteContaTransLogTransViewModel"] = clienteContaTransLogTransViewModel;
+            TempData["contaSelecinada"] = conta;
+            TempData["clienteSelecionado"] = cliente;
+            //return new Rotativa.ViewAsPdf(View(clienteContaTransLogTransViewModel));
             return View(clienteContaTransLogTransViewModel);
         }
+        public ActionResult ListExtratoConta2_Pdf()
+        {
+            var clienteContaTransLogTransViewModel = TempData["TempData_clienteContaTransLogTransViewModel"] as IEnumerable<ClienteContaTransLogTransViewModel>;
+            var conta = TempData["contaSelecinada"] as Conta; //conta cliente atual
+            var cliente = TempData["clienteSelecionado"] as Cliente;
 
+            string dadosConta = "Agência: " + conta.NAgencia + " - " + conta.ADigito + "    Conta: " + conta.NConta + " - " + conta.CDigito; //conta + Agencia do clliente
+            ViewBag.nomeCliente = cliente.Nome;
+            ViewBag.dadosConta = dadosConta;
+
+
+            return new Rotativa.ViewAsPdf("ListExtratoConta2", clienteContaTransLogTransViewModel);
+            
+        }
         // GET: Conta
         public async System.Threading.Tasks.Task<ActionResult> Index()
         //List<Conta> Contas = new List<Conta>();

@@ -1,4 +1,3 @@
-D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.csprojResolveAssemblyReference.cache
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\AutoMapper.Net4.dll
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\ApplicationInsights.config
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\roslyn\csc.exe
@@ -29,10 +28,13 @@ D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.Applicat
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.Web.Infrastructure.dll
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\Newtonsoft.Json.dll
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\PagedList.dll
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\PagedList.Mvc.dll
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\ProjectBancoItau.API.dll
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Application.dll
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Domain.dll
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\ProjectBancoItau.Infra.Data.dll
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\Rotativa.dll
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\SimpleInjector.dll
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\SimpleInjector.Integration.Web.dll
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\SimpleInjector.Integration.Web.Mvc.dll
@@ -61,6 +63,8 @@ D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.AI.Web.x
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.AI.WindowsServer.xml
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.ApplicationInsights.xml
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\PagedList.xml
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\PagedList.Mvc.xml
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\SimpleInjector.xml
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\SimpleInjector.Integration.Web.xml
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\SimpleInjector.Integration.Web.Mvc.xml
@@ -77,5 +81,6 @@ D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\System.Web.WebPage
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\Antlr3.Runtime.pdb
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\Newtonsoft.Json.xml
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\bin\System.Web.Http.WebHost.xml
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.csprojResolveAssemblyReference.cache
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.dll
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.MVC\obj\Debug\ProjectBancoItau.MVC.pdb

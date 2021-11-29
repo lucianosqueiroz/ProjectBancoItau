@@ -23,3 +23,12 @@ D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Application\bin\Debug\Newt
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Application\obj\Debug\ProjectBancoItau.Application.csprojResolveAssemblyReference.cache
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Application\obj\Debug\ProjectBancoItau.Application.dll
 D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Application\obj\Debug\ProjectBancoItau.Application.pdb
+C:\Users\Luciano Queiroz\Downloads\ProjectBancoItau-main (1)\ProjectBancoItau-main\ProjectBancoItau.Application\bin\Debug\ProjectBancoItau.Application.dll
+C:\Users\Luciano Queiroz\Downloads\ProjectBancoItau-main (1)\ProjectBancoItau-main\ProjectBancoItau.Application\bin\Debug\ProjectBancoItau.Application.pdb
+C:\Users\Luciano Queiroz\Downloads\ProjectBancoItau-main (1)\ProjectBancoItau-main\ProjectBancoItau.Application\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Luciano Queiroz\Downloads\ProjectBancoItau-main (1)\ProjectBancoItau-main\ProjectBancoItau.Application\bin\Debug\ProjectBancoItau.Domain.dll
+C:\Users\Luciano Queiroz\Downloads\ProjectBancoItau-main (1)\ProjectBancoItau-main\ProjectBancoItau.Application\bin\Debug\ProjectBancoItau.Domain.pdb
+C:\Users\Luciano Queiroz\Downloads\ProjectBancoItau-main (1)\ProjectBancoItau-main\ProjectBancoItau.Application\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Luciano Queiroz\Downloads\ProjectBancoItau-main (1)\ProjectBancoItau-main\ProjectBancoItau.Application\obj\Debug\ProjectBancoItau.Application.csprojResolveAssemblyReference.cache
+C:\Users\Luciano Queiroz\Downloads\ProjectBancoItau-main (1)\ProjectBancoItau-main\ProjectBancoItau.Application\obj\Debug\ProjectBancoItau.Application.dll
+C:\Users\Luciano Queiroz\Downloads\ProjectBancoItau-main (1)\ProjectBancoItau-main\ProjectBancoItau.Application\obj\Debug\ProjectBancoItau.Application.pdb

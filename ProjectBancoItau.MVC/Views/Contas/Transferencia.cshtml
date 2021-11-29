@@ -30,7 +30,7 @@
         </div>
         <div>
             <label><FONT COLOR="#rrggbb">Valor: </FONT> </label>
-            <input type="number" name="valor" /><br />
+            <input type="text" name="valor" id="valor" value="0,00" step='0.01' min='0' /><br />
         </div>
         <div>
             <label><FONT COLOR="#rrggbb">Agência: </FONT> </label>
@@ -45,4 +45,11 @@
     </form>
 </body>
 </html>
+<script>
+$(document).ready(function(){
+    var s = $('#valor').val().replace(/\,/g, '.');
+    $('#valor').attr('type', 'number');
+    $('#valor').val(s);
+});
+</script>
 

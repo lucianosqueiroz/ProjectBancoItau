@@ -104,6 +104,46 @@ namespace ProjectBancoItau.Infra.Data.Repositorios
             }
         }
 
+        public IEnumerable<LogTransacao> ExtratoCompleto(int? idCliente, int? idConta, DateTime dataInicial, DateTime dataFinal)
+        //ExtratoFiltrado por operação
+        {
+            {
+                String dataInicialString = dataInicial.ToString("yyyy-MM-dd");
+                String dataFinalString = dataFinal.ToString("yyyy-MM-dd");
+
+                List<LogTransacao> LogTransacoes = new List<LogTransacao>();
+                using (SqlConnection con = new SqlConnection(CS))
+                {
+
+
+                    SqlCommand cmd = new SqlCommand("[dbo].[PBSP_LogTransacaoExtratoCliente]", con);
+                    SqlParameter param = new SqlParameter();
+                    cmd.Parameters.AddWithValue("@idCliente", idCliente);
+                    cmd.Parameters.AddWithValue("@idConta", idConta);
+                    cmd.Parameters.AddWithValue("@dataInicial", dataInicialString);
+                    cmd.Parameters.AddWithValue("@dataFinal", dataFinalString);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        var logTransacao = new LogTransacao()
+                        {
+                            IdLogTransacao = Convert.ToInt32(dr["idLogTrans"]),
+                            IdCliente = Convert.ToInt32(dr["idCliente"]),
+                            IdConta = Convert.ToInt32(dr["idConta"]),
+                            IdTrans = Convert.ToInt32(dr["idTransacao"]),
+                            ValorTrans = Convert.ToDecimal(dr["valorTrans"]),
+                            DataTrans = Convert.ToDateTime(dr["dataTrans"])
+
+                        };
+                        LogTransacoes.Add(logTransacao);
+                    }
+                    return (LogTransacoes);
+                }
+            }
+        }
+
         public LogTransacao LogTransacaoListaConta(int? idConta)
         {
             //retorna usuário pelo Id

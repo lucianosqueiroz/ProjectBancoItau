@@ -33,8 +33,7 @@ namespace ProjectBancoItau.API.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("GetGerentes")]
+        [HttpGet,Route("api/Usuario/GetGerentes")]
         public IHttpActionResult GetGerentes()
         {
             var usuariosList = _usuarioRepository.BuscaTodosUsuariosGerentes();

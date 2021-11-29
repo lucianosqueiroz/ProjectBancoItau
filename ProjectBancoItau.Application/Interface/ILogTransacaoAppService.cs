@@ -11,7 +11,8 @@ namespace ProjectBancoItau.Application.Interface
     {
         IEnumerable<LogTransacao> LogTransacaosListar();
         //LogTransacao LogTransacaoListaCliente(int? numeroLogTransacao);
-        IEnumerable<LogTransacao> ExtratoResumido(int? idCliente, int? idConta, int? idTrans, DateTime dataInicial, DateTime dataFinal);
+        Task<List<LogTransacao>> ExtratoResumido(int? idCliente, int? idConta, int? idTrans, DateTime dataInicial, DateTime dataFinal);
+        Task<List<LogTransacao>> ExtratoCompleto(int? idCliente, int? idConta, DateTime dataInicial, DateTime dataFinal);
         LogTransacao LogTransacaoListaConta(int? idConta);
         void InserirLogTransacao(LogTransacao logTransacao);
         void DeletarLogTransacao(LogTransacao logTransacao);

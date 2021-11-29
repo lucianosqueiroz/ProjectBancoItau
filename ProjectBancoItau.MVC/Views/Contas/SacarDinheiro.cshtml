@@ -26,12 +26,11 @@
         <div class="form-group">
             @Html.Label("Valor disponível: ", htmlAttributes: new { @class = "control-label col-md-2" })
             @Html.DisplayFor(model => model.Saldo)
-            
         </div>
         <div class="form-group">
             @Html.Label("Valor que deseja sacar:", htmlAttributes: new { @class = "control-label col-md-2" })
             <div id="valorSaqueDiv"typeof="number" class="col-md-10">
-                <input type="number" @*step="any"*@ name="valorSaque" /><br />
+                <input type="text" value="0,00" id="valorSaque" step='0.01' min='0' name="valorSaque"/><br />
             </div>
         </div>
         <div class="form-group">
@@ -60,6 +59,14 @@
             </div>
         </div>
     </div>
+
+<script>
+    $(document).ready(function () {
+        var s = $('#valorSaque').val().replace(/\,/g, '.');
+        $('#valorSaque').attr('type', 'number');
+        $('#valorSaque').val(s);
+    });
+</script>
 }
 
 

@@ -52,9 +52,7 @@ namespace ProjectBancoItau.Infra.Data.Repositorios
                 }
             }
         }
-
-
-
+       
         public void DeletarTransacao(Transacao transacao)
         {
             //retorna usuário pelo Id

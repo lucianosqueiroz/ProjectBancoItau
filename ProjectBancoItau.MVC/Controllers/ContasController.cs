@@ -459,7 +459,7 @@ namespace ProjectBancoItau.MVC.Controllers
         public async System.Threading.Tasks.Task<ActionResult> Extrato(int id)
         {
 
-            var clienteContaTransLogTransViewModel = Mapper.Map<LogTransacao, ClienteContaTransLogTransViewModel>(_logTransacaoApp.LogTransacaoListaConta(id));
+            var clienteContaTransLogTransViewModel = new ClienteContaTransLogTransViewModel(); //Mapper.Map<LogTransacao, ClienteContaTransLogTransViewModel>(await _transacaoApp.BuscaTodosTransacaos());
             var transacoes = _transacaoApp.BuscaTodosTransacaos();
 
             Conta conta = new Conta();
@@ -499,27 +499,56 @@ namespace ProjectBancoItau.MVC.Controllers
             var transacao = new Transacao();
             transacao = await _transacaoApp.BuscaTransacaoPorId(clienteContaTransLogTransViewModel.IdTrans);//pega o tipo de transacao que será mostrado no extrato
 
-            var clienteContaTransLogTransViewModel2 = Mapper.Map<IEnumerable<LogTransacao>,
-                IEnumerable<ClienteContaTransLogTransViewModel>>(_logTransacaoApp.ExtratoResumido(conta.idCliente, conta.IdConta,
-                transacao.IdTransacao, dataInicial, dataFinal));
-            foreach (var item in clienteContaTransLogTransViewModel2)
+
+            if (transacao.IdTransacao == 0)//opção de todas transações marcadas no listbox. Extrato Completo
             {
-                item.Transacao = transacao.Nome;
-                item.NConta = conta.NConta;
-            }
 
-            if (conta.idCliente != 0)
+                var listTransacoesDomain = await _logTransacaoApp.ExtratoCompleto(conta.idCliente, conta.IdConta, dataInicial, dataFinal);
+                var listClienteContaTransLogTransViewModel2 = Mapper.Map<List<LogTransacao>,
+                   List<ClienteContaTransLogTransViewModel >>(listTransacoesDomain);
+                var transcaoId = 0; //variável controle para não reliar select no banco toda hora
+                foreach (var item in listClienteContaTransLogTransViewModel2)
+                {
+                    if (transcaoId != item.IdTrans)//se transacaoId for diferente do id do novo item, faça select novamente nas transações para ver o novo nome.
+                    {
+                        transacao = await _transacaoApp.BuscaTransacaoPorId(item.IdTrans);
+                       
+                    }
+                    item.Transacao = transacao.Nome;
+                    item.NConta = conta.NConta;
+                    item.Transacao = transacao.Nome;
+                    transcaoId = item.IdTrans;
+                }
+
+                if (conta.idCliente != 0)
+                {
+                    TempData["TempData_clienteContaTransLogTransViewModel"] = listClienteContaTransLogTransViewModel2;
+                    return RedirectToAction("ListExtratoConta2");
+                    // RedirectToAction("ListExtratoConta2", clienteContaTransLogTransViewModel2);
+                }
+                return View();
+
+            }
+            else// extrato resumido por transação específica
             {
-                TempData["TempData_clienteContaTransLogTransViewModel"] = clienteContaTransLogTransViewModel2;
-                return RedirectToAction("ListExtratoConta2");
-                // RedirectToAction("ListExtratoConta2", clienteContaTransLogTransViewModel2);
+
+                var clienteContaTransLogTransViewModel2 = Mapper.Map<IEnumerable<LogTransacao>,
+                   IEnumerable<ClienteContaTransLogTransViewModel>>(await _logTransacaoApp.ExtratoResumido(conta.idCliente, conta.IdConta,
+                   transacao.IdTransacao, dataInicial, dataFinal));
+                foreach (var item in clienteContaTransLogTransViewModel2)
+                {
+                    item.Transacao = transacao.Nome;
+                    item.NConta = conta.NConta;
+                }
+
+                if (conta.idCliente != 0)
+                {
+                    TempData["TempData_clienteContaTransLogTransViewModel"] = clienteContaTransLogTransViewModel2;
+                    return RedirectToAction("ListExtratoConta2");
+                    // RedirectToAction("ListExtratoConta2", clienteContaTransLogTransViewModel2);
+                }
+                return View();
             }
-            return View();
-
-
-
-
-            //  return View("ListExtratoConta2", clienteContaTransLogTransViewModel2);
         }
 
         public ActionResult ListExtratoConta2()

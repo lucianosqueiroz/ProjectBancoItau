@@ -19,8 +19,7 @@ namespace ProjectBancoItau.API.Controllers
             _logTransacaoRepository = logTransacaoRepository;
             _contaRepository = contaRepository;
         }
-        // GET: api/logTransacao
-        [HttpGet]
+        // GET: api/LogTransacao
         public IHttpActionResult Get()
         {
             var logTransacaos = _logTransacaoRepository.LogTransacaosListar();
@@ -35,12 +34,11 @@ namespace ProjectBancoItau.API.Controllers
             }
         }
 
-        // GET: api/LogTransacao/5
-        [HttpGet]
-        public IHttpActionResult Get(int conta)
+        [HttpGet, Route("api/LogTransacao/GetExtratoResumido")]
+        public IHttpActionResult GetExtratoResumido(int? idCliente, int? idConta, int? idTrans, DateTime dataInicial, DateTime dataFinal)// extrato completo
         {
-            var logTransacao = _logTransacaoRepository.LogTransacaoListaConta(conta);
-            if (logTransacao.IdLogTransacao != 0)
+            var logTransacao = _logTransacaoRepository.ExtratoResumido(idCliente, idConta, idTrans, dataInicial, dataFinal);
+            if (logTransacao.Count() > 0)
             {
                 return Ok(logTransacao);
             }
@@ -49,45 +47,45 @@ namespace ProjectBancoItau.API.Controllers
                 return Content(HttpStatusCode.NotFound, "LogTransacao não encontrado.");
             }
         }
+        [HttpGet, Route("api/LogTransacao/GetExtratoCompleto")]
+        public IHttpActionResult GetExtratoCompleto(int? idCliente, int? idConta, DateTime dataInicial, DateTime dataFinal)// extrato completo
+        {
+            var logTransacao = _logTransacaoRepository.ExtratoCompleto(idCliente, idConta, dataInicial, dataFinal);
 
-        [HttpGet]
-        
+            if (logTransacao.Count() > 0)
+            {
+                return Ok(logTransacao);
+            }
+            else
+            {
+                return Content(HttpStatusCode.NotFound, "LogTransacao não encontrado.");
+            }
+        }
+        // GET: api/LogTransacao/5
+        /* public string Get(int id)
+         {
+             return "value";
+         }*/
 
-        // POST: api/logTransacao
+        // POST: api/LogTransacao
         public IHttpActionResult Post(LogTransacao logTransacao)
         {
-            if (logTransacao.IdConta != 0 ) //se a senha nem o login do usuário não for em branco, insira ele no banco
+            if (logTransacao != null) //verifica se os dados do cliente são válidos (cpf no caso)
             {
                 _logTransacaoRepository.InserirLogTransacao(logTransacao);
                 return Ok();
             }
-            return Content(HttpStatusCode.NotFound, "Não foi possível cadastrar o usuário.");
-
+            return Content(HttpStatusCode.NotFound, "Transação não gravada.");
         }
 
-        // PUT: api/logTransacao/5
-        public IHttpActionResult Put(LogTransacao logTransacao)
+        // PUT: api/LogTransacao/5
+        public void Put(int id, [FromBody]string value)
         {
-            if (logTransacao.IdConta != 0) //se a senha nem o login do usuário não for em branco, insira ele no banco
-            {
-                _logTransacaoRepository.AtualizarLogTransacao(logTransacao);
-                return Ok();
-            }
-            return Content(HttpStatusCode.NotFound, "Não foi possível atualizar o usuário.");
         }
-        // DELETE: api/logTransacao/5
-        public IHttpActionResult Delete([FromBody] LogTransacao logTransacao)
+
+        // DELETE: api/LogTransacao/5
+        public void Delete(int id)
         {
-            logTransacao = _logTransacaoRepository.LogTransacaoListaConta(logTransacao.IdConta);
-            if (logTransacao.IdLogTransacao != 0) //se existir log
-            {
-                _logTransacaoRepository.DeletarLogTransacao(logTransacao);
-                return Ok();
-
-            }
-            return Content(HttpStatusCode.NotFound, "Log não encontrado.");
         }
-
-
     }
 }

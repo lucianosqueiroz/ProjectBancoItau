@@ -1,0 +1,5 @@
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Services\bin\Debug\ProjectBancoItau.Services.dll
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Services\bin\Debug\ProjectBancoItau.Services.pdb
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Services\obj\Debug\ProjectBancoItau.Services.csprojResolveAssemblyReference.cache
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Services\obj\Debug\ProjectBancoItau.Services.dll
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Services\obj\Debug\ProjectBancoItau.Services.pdb

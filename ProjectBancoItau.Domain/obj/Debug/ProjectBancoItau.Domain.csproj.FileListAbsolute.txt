@@ -15,3 +15,4 @@ C:\Users\Luciano Queiroz\Downloads\ProjectBancoItau-main (1)\ProjectBancoItau-ma
 C:\Users\Luciano Queiroz\Downloads\ProjectBancoItau-main (1)\ProjectBancoItau-main\ProjectBancoItau.Domain\bin\Debug\ProjectBancoItau.Domain.pdb
 C:\Users\Luciano Queiroz\Downloads\ProjectBancoItau-main (1)\ProjectBancoItau-main\ProjectBancoItau.Domain\obj\Debug\ProjectBancoItau.Domain.dll
 C:\Users\Luciano Queiroz\Downloads\ProjectBancoItau-main (1)\ProjectBancoItau-main\ProjectBancoItau.Domain\obj\Debug\ProjectBancoItau.Domain.pdb
+D:\Luciano\Projetos\ProjectBancoItau\ProjectBancoItau.Domain\obj\Debug\ProjectBancoItau.Domain.csprojResolveAssemblyReference.cache

@@ -63,8 +63,7 @@ namespace ProjectBancoItau.API.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("GetLogin")]
+        [HttpGet, Route("api/Usuario/GetLogin")]
         public IHttpActionResult GetLogin(string login)
         {
             var usuario = _usuarioRepository.ListaUsuarioPorLogin(login);

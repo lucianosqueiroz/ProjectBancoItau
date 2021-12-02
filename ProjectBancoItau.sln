@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "APIs", "APIs", "{C4C03B6F-4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectBancoItau.API", "ProjectBancoItau.API\ProjectBancoItau.API.csproj", "{493F3EDC-FCE1-47AF-ACD8-06CC8C3DD243}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectBancoItau.Services", "ProjectBancoItau.Services\ProjectBancoItau.Services.csproj", "{099C8868-82CE-44FB-92DD-798C75693485}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{493F3EDC-FCE1-47AF-ACD8-06CC8C3DD243}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{493F3EDC-FCE1-47AF-ACD8-06CC8C3DD243}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{493F3EDC-FCE1-47AF-ACD8-06CC8C3DD243}.Release|Any CPU.Build.0 = Release|Any CPU
+		{099C8868-82CE-44FB-92DD-798C75693485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{099C8868-82CE-44FB-92DD-798C75693485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{099C8868-82CE-44FB-92DD-798C75693485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{099C8868-82CE-44FB-92DD-798C75693485}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,5 +73,6 @@ Global
 		{53891C02-6533-4FE9-9C30-EE340120DB9F} = {3161A6D3-40EA-46C7-819D-0BCD98C9651A}
 		{193B261E-0B70-4A5B-8360-21601B2005AE} = {C60044D0-9504-4B2F-B4ED-A27FF14DF1CD}
 		{493F3EDC-FCE1-47AF-ACD8-06CC8C3DD243} = {C4C03B6F-40AE-4645-AAF0-9D866E47454B}
+		{099C8868-82CE-44FB-92DD-798C75693485} = {FD9EA9A5-A297-4232-B2EC-665254C5789A}
 	EndGlobalSection
 EndGlobal

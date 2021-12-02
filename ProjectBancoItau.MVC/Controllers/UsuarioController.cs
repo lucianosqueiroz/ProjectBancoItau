@@ -1,18 +1,12 @@
 ﻿using AutoMapper;
 using ProjectBancoItau.Application.Interface;
 using ProjectBancoItau.Domain.Entities;
-using ProjectBancoItau.Infra.Data.Repositorios;
 using ProjectBancoItau.MVC.Extensions;
 using ProjectBancoItau.MVC.ViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
-
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
+using ProjectBancoItau.Services;
 
 namespace ProjectBancoItau.MVC.Controllers
 {
@@ -36,18 +30,21 @@ namespace ProjectBancoItau.MVC.Controllers
         public async Task<ActionResult> LogarUsuario(UsuarioViewModel usuarioViewModel)
         {
             var usuarioDomain = Mapper.Map<UsuarioViewModel, Usuario>(usuarioViewModel);
-            var usuarioViewModel2 = await _usuarioApp.ListaUsuarioPorLogin(usuarioDomain.Login);
+            var usuarioDomain2 = await _usuarioApp.ListaUsuarioPorLogin(usuarioDomain.Login);
+            var senhaDescript = new Senha();
+            usuarioDomain2.Senha = senhaDescript.Descriptografar(usuarioDomain2.Senha); //descriptografando a senha digitada pelo usuário para fazer comparação com banco
 
-            if (usuarioViewModel2.Senha == usuarioViewModel.Senha && usuarioViewModel2.Gerente == true)//validar senha onde usuarioViewModel.senha é a senha digitada pelo usuário e usuarioViewModel2.senha, é a registrada em banco. O usuario tbm devera ser gerente
+
+            if (usuarioDomain2.Senha == usuarioViewModel.Senha && usuarioDomain2.Gerente == true)//validar senha onde usuarioViewModel.senha é a senha digitada pelo usuário e usuarioViewModel2.senha, é a registrada em banco. O usuario tbm devera ser gerente
             {
                 return Redirect("/Contas/BuscaClienteConta/");
             }
-            if (usuarioViewModel2.Login == null)
+            if (usuarioDomain2.Login == null)
             {
                 this.AddNotification("Usuário não encontrado.", NotificationType.ERROR);
                 return View();
             }
-            if (usuarioViewModel2.Gerente == false)
+            if (usuarioDomain2.Gerente == false)
             {
                 this.AddNotification("Você não tem permissão de gerente.", NotificationType.ERROR);
                 return View();
@@ -100,6 +97,8 @@ namespace ProjectBancoItau.MVC.Controllers
             if (ModelState.IsValid)
             {
                 var usuarioDomain = Mapper.Map<UsuarioViewModel, Usuario>(usuario);
+                var senhaCript = new Senha();
+                usuarioDomain.Senha = senhaCript.Criptografar(usuarioDomain.Senha);
                 _usuarioApp.InserirUsuario(usuarioDomain);
                 this.AddNotification("Usuario cadastrado com sucesso.", NotificationType.SUCCESS);
                 return RedirectToAction("Index");
@@ -110,7 +109,7 @@ namespace ProjectBancoItau.MVC.Controllers
         }
 
         // GET: Usuario/Edit/5
-        public async System.Threading.Tasks.Task<ActionResult> Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
             var usuario = await _usuarioApp.BuscaUsuarioPorID(id);
             var usuarioViewModel = Mapper.Map<Usuario, UsuarioViewModel>(usuario);
@@ -127,7 +126,7 @@ namespace ProjectBancoItau.MVC.Controllers
 
                 var usuarioDomain = Mapper.Map<UsuarioViewModel, Usuario>(usuarioViewModel);
                 _usuarioApp.AtualizarUsuario(usuarioDomain);
-                this.AddNotification("Usuário editado com sucesso..", NotificationType.SUCCESS);
+                this.AddNotification("Usuário editado com sucesso.", NotificationType.SUCCESS);
                 return RedirectToAction("Index");
             }
             this.AddNotification("Erro ao editar o usuário.", NotificationType.ERROR);

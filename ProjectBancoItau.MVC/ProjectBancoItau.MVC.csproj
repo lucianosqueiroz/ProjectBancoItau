@@ -332,6 +332,10 @@
       <Project>{53891C02-6533-4FE9-9C30-EE340120DB9F}</Project>
       <Name>ProjectBancoItau.Infra.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProjectBancoItau.Services\ProjectBancoItau.Services.csproj">
+      <Project>{099C8868-82CE-44FB-92DD-798C75693485}</Project>
+      <Name>ProjectBancoItau.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
